@@ -18,8 +18,9 @@ email: pkrukowski@atmosphaera.cloud
 description: >- # this means to ignore newlines until "baseurl:"
   Cloud Chronicles is a tech blog that covers the latest developments and trends in cloud technologies.
 github_username: krukowskid
-minimal_mistakes_skin: default
+minimal_mistakes_skin: dark
 search: true
+locale: "en"
 
 # Build settings
 markdown: kramdown
@@ -53,18 +54,27 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-spaceship
+
+jekyll-spaceship:
+  mermaid-processor:
+    config:
+      theme: dark
 
 author:
   name   : "Piotr Krukowski"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "From the clouds to your screen, I deliver cutting-edge analysis and commentary on all things cloud on the Cloud Chronicles blog."
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://github.com/krukowskid"
+    # - label: "Website"
+    #   icon: "fas fa-fw fa-link"
+    #   url: ""
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/krukowskid"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/piotr-krukowski/"
 
 footer:
   links:
