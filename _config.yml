@@ -25,6 +25,7 @@ locale: "en"
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
+repository: krukowskid/krukowskid.github.io
 # Outputting
 permalink: /:categories/:title/
 paginate: 10 # amount of posts to show
