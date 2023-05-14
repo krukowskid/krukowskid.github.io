@@ -9,5 +9,13 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 .page__content {
-    text-align: justify;
-  }
+  text-align: justify;
+}
+
+.thumbnail-container {
+  margin-bottom: 15px;
+}
+
+.sidebar__right {
+  text-align: left;
+}
