@@ -6,6 +6,8 @@ title: "How to Build a Scalable and Cost-Effective Multi-Tenant Postgres Cluster
 header:
   teaser: /assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header.png
 
+date: 2023-05-14
+
 categories:
   - Blog
 
