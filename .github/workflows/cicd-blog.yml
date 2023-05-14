@@ -23,5 +23,6 @@ jobs:
           provider: 'github'
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: 'main'
+          repository: 'krukowskid.github.io'
           cname: 'cloudchronicles.blog'
    
