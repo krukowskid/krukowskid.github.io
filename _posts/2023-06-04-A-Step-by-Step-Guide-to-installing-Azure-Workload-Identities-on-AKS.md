@@ -136,7 +136,8 @@ Note that when using the CLI, the Workload Identity resources will be created in
 
 ## Helm chart
 
-If you prefer using Helm, there is a [ready to use chart provided by Azure](https://artifacthub.io/packages/helm/azure-workload-identity/workload-identity-webhook). There are multiple ways to install it on your cluster - with helm, terraform etc.
+If you prefer using Helm, there is a [ready to use chart provided by Azure](https://artifacthub.io/packages/helm/azure-workload-identity/workload-identity-webhook). There are multiple ways to install it on your cluster - with helm, terraform etc. 
+You need to enable oidc issuer on cluster with Terraform / Azure CLI in order to enable workload identity with Helm.
 
 Example installation with helm install: 
 ```bash
