@@ -37,7 +37,7 @@ Until now, managed identity support in local Docker containers was limited, and 
 
 # How to enable managed identity for containers?
 
-## Requirments
+## Requirements
 To get started with managed identity for containers, you'll need the following:
 
 - Visual Studio 17.6 or later.
