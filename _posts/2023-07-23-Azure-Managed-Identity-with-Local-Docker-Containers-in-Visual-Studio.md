@@ -51,21 +51,21 @@ To get started with managed identity for containers, you'll need the following:
 ![Visual Studio check for updates](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Visual-Studio-check-for-updates.gif)<br>
 *Visual Studio check for updates*<br><br>
 Make sure your version is >=17.6.
-![Visual Studio update window](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Visual-Studio-update-window.gif)
+![Visual Studio update window](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Visual-Studio-update-window.gif)<br>
 *Visual Studio update window*<br><br>
 2. [Install the latest version of Docker Desktop](https://www.docker.com/) with WSL on your Windows machine if you haven't already.
 
 3. Make sure you have a Dockerfile in your project. 
-![Dockerfile in project](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Dockerfile-in-project.gif)
+![Dockerfile in project](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Dockerfile-in-project.gif)<br>
 *Dockerfile in project*<br><br>
 If you don't have one yet, you can auto-generate it by right-clicking on your project and selecting `Add -> Docker support...`
-![Add Docker support option in VS](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-Docker-support-option-in-VS.gif)
+![Add Docker support option in VS](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-Docker-support-option-in-VS.gif)<br>
 *Add Docker support option in VS*<br><br>
 If you haven't add Docker support from VS, you will also need to add a project launch profile with proper settings like ports and startup variables. You can add lanuch profile by going to `Debug -> project Debug Properties`
 ![Debug properties option](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Debug-properties-option.gif)<br>
 *Debug properties option*<br><br>
 and click on Add option in Launch Profile window
-![Add Docker Launch Profile](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-Docker-Launch-Profile.gif)
+![Add Docker Launch Profile](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-Docker-Launch-Profile.gif)<br>
 *Add Docker Launch Profile*
 4. Update your project to use version >=1.9.0 of the Azure.Identity package. You can install or update the package by right-clicking on your solution in `Solution Explorer -> Manage NuGet packages for the solution`, or do the same in the context of your project.
 ![Add NuGet package](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-NuGet-package.gif)<br>
@@ -76,7 +76,7 @@ and click on Add option in Launch Profile window
 
 From now on, your container will have access to your logged-in account. 
 
-![Visual Studio logged-in identity](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Visual-Studio-logged-in-identity.gif)
+![Visual Studio logged-in identity](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Visual-Studio-logged-in-identity.gif)<br>
 *Visual Studio logged-in identity*
 
 If you use `DefaultAzureCredential()` in your application code, it will utilize VisualStudioIdentity when running locally and `WorkloadIdentityCredential` or `ManagedIdentityCredential` when deployed to Azure.
@@ -105,7 +105,7 @@ builder.Host.ConfigureAppConfiguration((context, config) =>
 
 The mechanism behind this is fairly simple. Visual Studio maps volumes to Docker, exposing the token to the container. One drawback is that running container directly from CLI or Docker Desktop still requires some workarounds to make it work with developer identity. However, Visual Studio has support for Docker-compose, allowing you to start multiple containers from VS with rich debugging capabilities and described above Azure identity support.
 
-![Volumes mounted by VS](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Volumes-mounted-by-VS.gif)
+![Volumes mounted by VS](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Volumes-mounted-by-VS.gif)<br>
 *Volumes mounted by VS*
 
 # Conslusion 
