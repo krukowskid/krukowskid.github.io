@@ -148,6 +148,7 @@ module "app_configuration" {
 
 If you intend to keep your modules in a private repository, ensure that your app, identity, or user has the proper permissions to access the repo. Terraform uses default git permissions when checking out modules. In local development, your git credentials will suffice, but in GitHub Actions, I use a GitHub Application and two additional steps to authenticate with the git repo:
 
+{% raw %}
 ```yaml
 - name: Generate token
   env:
@@ -169,7 +170,7 @@ If you intend to keep your modules in a private repository, ensure that your app
     echo ${{ steps.generate_token.outputs.token }} | gh auth login --with-token
     gh auth setup-git
 ```
-
+{% endraw %}
 
 # Conclusion
 
