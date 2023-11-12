@@ -1,5 +1,6 @@
 ---
 excerpt_text: "Building a multi-tenant postgres data store solution on AWS cloud sounds easy, but there are many factors to consider."
+excerpt: "How to build multi-tenancy using relational databases. A complete guide which will lead you to proper architecture design for your solution."
 
 title: "How to Build a Scalable and Cost-Effective Multi-Tenant Postgres Cluster on AWS Aurora Serverless v2"
 

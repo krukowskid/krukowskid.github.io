@@ -1,5 +1,6 @@
 ---
 excerpt_text: "Detect vulnerabilities early and ensure secure, robust deployments!"
+excerpt: "An easy way to improve security and enable DevSecOps in your CICD pipelines."
 
 title: "Bringing Open Source Security to Azure DevOps and GitHub Actions with Trivy"
 

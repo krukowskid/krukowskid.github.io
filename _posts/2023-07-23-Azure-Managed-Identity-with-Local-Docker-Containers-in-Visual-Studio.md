@@ -1,5 +1,6 @@
 ---
 excerpt_text: "Seamlessly integrate Azure Managed Identity with local Docker in Visual Studio for secure, hassle-free development."
+excerpt: "How to setup and use azure manage identity in local developement with docker desktop and visual studio."
 
 title: "Azure Managed Identity with Local Docker Containers in Visual Studio"
 

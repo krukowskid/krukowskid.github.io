@@ -1,5 +1,6 @@
 ---
 excerpt_text: "Exploring Azure DevOps for Terraform Modules Monorepo"
+excerpt: "A guide on how to use Azure DevOps as Terraform Modules Monorepo with versioning, auto-documentation and security."
 
 title: "Azure Devops Terraform Modules Monorepo"
 

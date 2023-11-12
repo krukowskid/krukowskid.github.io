@@ -1,5 +1,6 @@
 ---
 excerpt_text: "Explore the GitHub-Powered Terraform Modules Monorepo!"
+excerpt: "A guide on how to use GitHub and GitHub Actions as Terraform Modules Monorepo with versioning, auto-documentation and security."
 
 title: "GitHub-Powered Terraform Modules Monorepo"
 
