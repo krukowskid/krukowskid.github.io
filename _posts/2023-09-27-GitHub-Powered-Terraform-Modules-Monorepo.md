@@ -35,7 +35,7 @@ The ingenious minds at Freight Hub had crafted a workflow that handled versionin
 
 It took me some time to devise this workflow, and I even sought the assistance of a colleague with whom I had debated the best approach for handling modules. The solution comprises two primary GitHub workflows, a pull request template, and five "helper" workflows designed to enhance readability compared to consolidating everything into a single workflow file.
 
-You can find example repository under this link: [https://github.com/krukowskid/terraform-modules-monorepo](https://github.com/krukowskid/terraform-modules-monorepo)
+You can find example repository under this link: [https://github.com/krukowskid/terraform-modules-monorepo-on-github](https://github.com/krukowskid/terraform-modules-monorepo-on-github)
 
 ## Repository Prerequisites
 
@@ -134,7 +134,7 @@ For example, for my repository, it would be:
 
 ```terraform
 module "app_configuration" {
-  source = "git::https://github.com/krukowskid/terraform-modules-monorepo.git?ref=app_configuration/v1.0.1"
+  source = "git::https://github.com/krukowskid/terraform-modules-monorepo-on-github.git?ref=app_configuration/v1.0.1"
 }
 ```
 
@@ -142,7 +142,7 @@ If you want to test your changes from a branch during development, you can do it
 
 ```terraform
 module "app_configuration" {
-  source = "git::https://github.com/krukowskid/terraform-modules-monorepo.git//module_name?ref=branch_name"
+  source = "git::https://github.com/krukowskid/terraform-modules-monorepo-on-github.git//module_name?ref=branch_name"
 }
 ```
 
