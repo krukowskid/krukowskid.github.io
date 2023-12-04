@@ -7,7 +7,7 @@ title: "Passwordless Authentication for GitHub Actions and Azure DevOps"
 header:
   teaser: /assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.png
 
-date: 2023-12-04
+date: 2023-12-05
 
 categories:
   - Blog
