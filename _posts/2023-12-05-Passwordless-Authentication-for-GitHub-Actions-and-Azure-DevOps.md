@@ -20,6 +20,7 @@ tags:
   - GitHub Actions
   - Azure Pipelines
   - Security
+  - Managed identity
 
 toc: true
 toc_sticky: true
