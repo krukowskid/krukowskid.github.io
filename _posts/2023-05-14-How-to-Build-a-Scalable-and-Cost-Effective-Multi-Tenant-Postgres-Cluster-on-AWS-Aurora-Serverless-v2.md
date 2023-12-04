@@ -60,7 +60,7 @@ When it comes to hosting data stores for multiple clients, there are several app
 ## Cluster per tenant
 ```mermaid!
 flowchart TD;
-    subgraph Cluster per tenant - no resources are shared;
+    subgraph "Cluster per tenant - no resources are shared";
         UA((User A<br>fa:fa-user)) --> D1
         subgraph User A cluster
             D1[(User 1 database)];
@@ -79,7 +79,7 @@ This approach is widely used in hosting services and local deployments where cli
 ## Database per tenant
 ```mermaid!
 flowchart TD;
-    subgraph Database per tenant - shared cluster, multiple databases;
+    subgraph "Database per tenant - shared cluster, multiple databases";
         U3((User 1<br>fa:fa-user))  --> Db3;
         U4((User N<br>fa:fa-user))  --> Db4;
         subgraph Cl3[Shared Cluster]
@@ -96,7 +96,7 @@ This setup is common in both desktop apps and web applications where clients don
 ## Schema per tenant
 ```mermaid!
 flowchart TD;
-    subgraph Schema per tenant - shared cluster, shared database, multiple schemas;
+    subgraph "Schema per tenant - shared cluster, shared database, multiple schemas";
         U5((User 1<br>fa:fa-user))  --> sc1;
         U6((User N<br>fa:fa-user))  --> sc2;
         subgraph Cl4[Shared Cluster]
@@ -138,7 +138,7 @@ Tables are duplicated for each user schema, as shown in the ER diagram below. Th
 ## Records per tenant
 ```mermaid!
 flowchart TD;
-    subgraph Records per tenant;
+    subgraph "Records per tenant";
         U7((User 1<br>fa:fa-user))  --> r1;
         U8((User N<br>fa:fa-user))  --> r2;
         subgraph Cl5[Shared Cluster]

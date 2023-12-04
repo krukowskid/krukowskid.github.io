@@ -16,6 +16,7 @@ tags:
   - GitHub Actions
   - CICD
   - Azure Pipelines
+  - Azure DevOps
   - Security
   - Trivy
 

@@ -13,7 +13,7 @@ categories:
   - Blog
 
 tags:
-  - Azure Devops
+  - Azure DevOps
   - CICD
   - Terraform
   - Monorepo
