@@ -136,8 +136,8 @@ resource "azurerm_cosmosdb_sql_role_definition" "this" {
 `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` and `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` are added along with `items/read` because those two are required when executing queries through the SDKs. The `Microsoft.DocumentDB/databaseAccounts/readMetadata` action is recommended but not required. It allows read metadata and child-objects limited to assigned scope
 
 Wildcards can also be used on containers and items levels when creating roles:    
-- `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`    
-- `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
+- ``Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*``
+- ``Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*``
 
 The ``assignable_scopes`` controls where the role can be assigned. For example, you can use this syntax ``"${azurerm_cosmosdb_account.example.id}/dbs/databasename"`` to limit the assignable scope to a single database within the CosmosDb account. Allowed scopes are `Account`, `Database`, and `Container`.
 
@@ -251,7 +251,9 @@ There's a caveat. You need to explicitly add `?feature.enableAadDataPlane=true` 
    
 With this query parameter, the following logic is used:  
    
-A request to fetch the account's primary key is attempted on behalf of the identity signed in. If this request succeeds, the primary key is used to access the account's data. If the identity signed in isn't allowed to fetch the account's primary key, this identity is directly used to authenticate data access. In this mode, the identity must be assigned with proper role definitions to ensure data access.
+1. A request to fetch the account's primary key is attempted on behalf of the identity signed in.
+2. If this request succeeds, the primary key is used to access the account's data. 
+3. If the identity signed in isn't allowed to fetch the account's primary key, this identity is directly used to authenticate data access. In this mode, the identity must be assigned with proper role definitions to ensure data access.
 
 # Working Terraform Example
 
