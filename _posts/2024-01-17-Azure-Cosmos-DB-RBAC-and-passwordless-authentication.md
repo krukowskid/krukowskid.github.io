@@ -21,7 +21,6 @@ tags:
 
 toc: true
 toc_sticky: true
-classes: wide
 ---
 
 ![Header](/assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.png)
