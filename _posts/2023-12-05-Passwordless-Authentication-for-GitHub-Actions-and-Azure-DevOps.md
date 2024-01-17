@@ -8,6 +8,7 @@ header:
   teaser: /assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.png
 
 date: 2023-12-05
+last_modified_at: 2024-01-17
 
 categories:
   - Blog
@@ -20,7 +21,7 @@ tags:
   - GitHub Actions
   - Azure Pipelines
   - Security
-  - Managed identity
+  - Managed Identity
 
 toc: true
 toc_sticky: true

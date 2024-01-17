@@ -16,7 +16,7 @@ tags:
   - Terraform
   - Azure
   - Security
-  - Managed identity
+  - Managed Identity
   - CosmosDb
 
 toc: true
