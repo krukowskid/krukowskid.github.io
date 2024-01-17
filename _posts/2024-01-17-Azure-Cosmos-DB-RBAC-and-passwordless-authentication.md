@@ -88,7 +88,7 @@ You might be wondering how to grant access. Typically, access is granted using t
 
 ## Roles
 
-CosmosDb for NoSQL includes two preconfigured roles - reader and contributor, which will cover most common scenarios.
+Cosmos DB for NoSQL includes two preconfigured roles - reader and contributor, which will cover most common scenarios.
 
 | ID | Name | Included actions |
 |---|---|---|
@@ -217,7 +217,7 @@ resource "azurerm_cosmosdb_account" "this" {
 
 ## Azure CLI
 
-Unfortunately this cannot be done trough `az cosmosdb` command.
+Unfortunately this cannot be done using `az cosmosdb` command.
 
 ```powershell
 $cosmosdb = az cosmosdb show  --name "<cosmos-db-account-name>" `
