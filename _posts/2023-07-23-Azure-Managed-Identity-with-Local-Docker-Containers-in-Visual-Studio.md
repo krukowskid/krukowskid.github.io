@@ -8,6 +8,7 @@ header:
   teaser: /assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/header.png
 
 date: 2023-07-23
+last_modified_at: 2024-01-19
 
 categories:
   - Blog
@@ -56,19 +57,19 @@ Make sure your version is >=17.6.
 *Visual Studio update window*<br><br>
 2. [Install the latest version of Docker Desktop](https://www.docker.com/) with WSL on your Windows machine if you haven't already.
 
-3. Make sure you have a Dockerfile in your project. 
+3. Make sure you have a Dockerfile in your project.<br>
 ![Dockerfile in project](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Dockerfile-in-project.gif)<br>
 *Dockerfile in project*<br><br>
-If you don't have one yet, you can auto-generate it by right-clicking on your project and selecting `Add -> Docker support...`
+If you don't have one yet, you can auto-generate it by right-clicking on your project and selecting `Add -> Docker support...`<br>
 ![Add Docker support option in VS](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-Docker-support-option-in-VS.gif)<br>
 *Add Docker support option in VS*<br><br>
-If you haven't add Docker support from VS, you will also need to add a project launch profile with proper settings like ports and startup variables. You can add lanuch profile by going to `Debug -> project Debug Properties`
+If you haven't add Docker support from VS, you will also need to add a project launch profile with proper settings like ports and startup variables. You can add lanuch profile by going to `Debug -> project Debug Properties`<br>
 ![Debug properties option](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Debug-properties-option.gif)<br>
 *Debug properties option*<br><br>
 and click on Add option in Launch Profile window
 ![Add Docker Launch Profile](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-Docker-Launch-Profile.gif)<br>
 *Add Docker Launch Profile*
-4. Update your project to use version >=1.9.0 of the Azure.Identity package. You can install or update the package by right-clicking on your solution in `Solution Explorer -> Manage NuGet packages for the solution`, or do the same in the context of your project.
+4. Update your project to use version >=1.9.0 of the Azure.Identity package. You can install or update the package by right-clicking on your solution in `Solution Explorer -> Manage NuGet packages for the solution`, or do the same in the context of your project.<br>
 ![Add NuGet package](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/Add-NuGet-package.gif)<br>
 *Add NuGet package*
 
@@ -112,10 +113,3 @@ The mechanism behind this is fairly simple. Visual Studio maps volumes to Docker
 # Conslusion 
 
 The recent updates to Visual Studio and Azure identity packages bring improved support for workload identity and enhanced capabilities. Managed identity simplifies authentication with Azure services and offers better security. Embracing these updates streamlines development and provides a more consistent experience between local and cloud deployment. So, make sure to update your Visual Studio and packages to leverage these powerful features!
-
-
-
-
-
-
-
