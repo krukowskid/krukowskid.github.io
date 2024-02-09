@@ -278,6 +278,45 @@ Two Helm charts are provided for your convenience, one published by Bitnami and 
 
 Setting resource limits for ExternalDNS pods is optional, but highly recommended for optimal performance and resource management on your cluster. The suggested values can serve as a helpful starting point based on my experience.
 
+Although most of the configuration is generic, there are specific entries tailored for an Azure DNS scenario, particularly with workload identity:
+
+Specify the DNS provider for creating DNS records.
+```yaml
+provider: azure
+```
+
+Configure Azure DNS, ensuring that `tenantId`, `subscriptionId`, and `resourceGroup` name point to the correct values for the DNS zone resource location.
+```yaml
+azure:
+  useWorkloadIdentityExtension: true
+  tenantId: < azure tenant id >
+  subscriptionId: < subscription id with dns zone resource >
+  subscriptionId: < resource group name with dns zone resource >
+```
+
+Configure pod labels and service account annotations for workload identity.
+```yaml
+podLabels:
+  azure.workload.identity/use: "true"
+
+serviceAccount:
+  annotations: 
+    azure.workload.identity/client-id: < the clientId of managed identity with DNS zone permissions >
+```
+
+Azure DNS does not support `*` in the middle of DNS entries like AWS Route53 or GCP DNS. ExternalDNS, by default, attempts to create `a-*` entries for wildcard ingress rules, resulting in errors. 
+
+```bash
+time="2022-08-01T13:10:44Z" level=info msg="Updating TXT record named 'a-*.example' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=ingress/xxx/yyy\"' for Azure DNS zone 'example.com'."
+time="2022-08-01T13:10:44Z" level=error msg="Failed to update TXT record named 'a-*.example' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=ingress/xxx/yyy\"' for DNS zone 'example.com': dns.RecordSetsClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code=\"BadRequest\" Message=\"The domain name 'a-*.example.example.com' is invalid. The provided record set relative name 'a-*.example' is invalid.\""
+```
+
+To address this, override `*` with a specific value, such as `wildcard`, using the `txt-wildcard-replacement` argument during deployment.
+```yaml
+extraArgs:
+  txt-wildcard-replacement: "wildcard"
+```
+
 ## Helm 
 {% raw %}
 ```powershell
@@ -289,16 +328,16 @@ helm install external-dns bitnami/external-dns `
   --set provider=azure `
   --set policy=sync `
   --set azure.useWorkloadIdentityExtension=true `
-  --set azure.txtOwnerId=external-dns `
-  --set azure.extraArgs.txt-wildcard-replacement=wildcard `
-  --set azure.podLabels."azure\.workload\.identity/use"=true `
   --set azure.resourceGroup=rg-name-with-dns-zone-resource ` # the resource group name where DNS zone is located
   --set azure.subscriptionId=c32d5ab5-478d-47ud-bc61-230d5511a0f0 `
   --set azure.tenantId=ald2e401-0911-47f6-8e20-13819f4bd107 `
+  --set extraArgs.txt-wildcard-replacement=wildcard `
+  --set serviceAccount.annotations."azure\.workload\.identity/client-id"=7d878f79-e2c7-41ee-a592-57ac74f14096 `
+  --set podLabels."azure\.workload\.identity/use"=true `
+  --set txtOwnerId=external-dns `
   --set logLevel=info `
   --set domainFilters[0]=dev.cloudchronicles.blog `
   --set domainFilters[1]=dev.next.domain ` # if you want to add more than one domain
-  --set serviceAccount.annotations."azure\.workload\.identity/client-id"=7d878f79-e2c7-41ee-a592-57ac74f14096 `
   --set resources.requests.cpu=10m `
   --set resources.requests.memory=32Mi `
   --set resources.limits.cpu=50m `
@@ -307,7 +346,7 @@ helm install external-dns bitnami/external-dns `
 {% endraw %}
 ## Helmfile
 
-Because i dont like to repeat myself, especially when it comes to configuration and may lead to mistakes, I am using two values files - one general for common configuration, applicable to all envrionments, and another one with environemnet speciafic configuration. However you can combine `values.yaml` and `values.dev.yaml` and use single values file without environments.
+To avoid redundancy and potential errors in configuration, I use two values files: one for general settings shared across all environments `values.yaml`, and another for environment-specific configurations `values.env.yaml`. However, you can merge these files into a single `values.yaml` and eliminate environment-specific files if desired.
 
 *helmfile.yaml*
 {% raw %}
@@ -339,6 +378,7 @@ policy: sync
 azure:
   useWorkloadIdentityExtension: true
   tenantId: < azure tenant id >
+
 txtOwnerId: external-dns
 
 extraArgs:
