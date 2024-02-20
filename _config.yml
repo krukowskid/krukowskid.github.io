@@ -65,7 +65,7 @@ jekyll-spaceship:
 
 author:
   name   : "Piotr Krukowski"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/bio-photo.webp"
   bio    : "From the clouds to your screen, I deliver cutting-edge analysis and commentary on all things cloud on the Cloud Chronicles blog."
   links:
     # - label: "Website"

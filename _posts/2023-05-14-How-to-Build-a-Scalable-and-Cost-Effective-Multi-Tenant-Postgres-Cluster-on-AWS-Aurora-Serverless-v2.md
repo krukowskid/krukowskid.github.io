@@ -5,7 +5,7 @@ excerpt: "How to build multi-tenancy using relational databases. A complete guid
 title: "How to Build a Scalable and Cost-Effective Multi-Tenant Postgres Cluster on AWS Aurora Serverless v2"
 
 header:
-  teaser: /assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header.png
+  teaser: /assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header.webp
 
 date: 2023-05-14
 
@@ -23,7 +23,7 @@ toc: true
 toc_sticky: true
 ---
 
-![header image](/assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header-mini.png)
+![header image](/assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header-mini.webp)
 
 # Introduction
 In this article, I will guide you through the process of building a cost-effective, scalable multitenant Postgres cluster. It is not as simple as it sounds! 

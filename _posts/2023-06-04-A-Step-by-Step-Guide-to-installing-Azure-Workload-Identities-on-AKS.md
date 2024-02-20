@@ -5,7 +5,7 @@ excerpt: "Complete guide on how to install Workload Identities in you Azure Kube
 title: "A Step-by-Step Guide to installing Azure Workload Identities on AKS"
 
 header:
-  teaser: /assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.png
+  teaser: /assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.webp
 
 date: 2023-06-04
 
@@ -25,7 +25,7 @@ toc: true
 toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.png)
+![Header](/assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.webp)
 
 # Introduction
 

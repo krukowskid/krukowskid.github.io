@@ -5,7 +5,7 @@ excerpt: "This guide offers a step-by-step walkthrough on enhancing Azure Cosmos
 title: "Azure Cosmos DB RBAC and passwordless authentication"
 
 header:
-  teaser: /assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.png
+  teaser: /assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.webp
 
 date: 2024-01-17
 
@@ -23,7 +23,7 @@ toc: true
 toc_sticky: true
 ---
 
-![Header](/assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.png)
+![Header](/assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.webp)
 
 # Introduction
 

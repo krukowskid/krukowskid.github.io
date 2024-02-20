@@ -5,7 +5,7 @@ excerpt: "Enhance your CI/CD pipelines with passwordless authentication using Wo
 title: "Passwordless Authentication for GitHub Actions and Azure DevOps"
 
 header:
-  teaser: /assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.png
+  teaser: /assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.webp
 
 date: 2023-12-05
 last_modified_at: 2024-01-17
@@ -27,7 +27,7 @@ toc: true
 toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.png)
+![Header](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.webp)
 
 # Introduction
 
@@ -43,7 +43,7 @@ While various tools can help manage secrets, it's practically impossible to trac
 
 The mechanism  that will allow you to connect without certificate or password is OpenID Connect (OIDC). OIDC is an authentication protocol based on the OAuth2 protocol (which is used for authorization). While those terms may go together in many cases they are not the same but connected. While OAuth2 is focused on authorization, OIDC is build on top of OAuth2 standard and focused on authentication, so OIDC role is to prove your, or your resource identity.
 
-![oidc flow](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/oidc.gif)
+![oidc flow](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/oidc.webp)
 *Source: https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation*
 
 1. The external workload (GitHub Actions workflow/Azure DevOps pipeline) requests a token from the external IdP (such as GitHub/Azure Devops).
@@ -110,7 +110,7 @@ The automatic configuration option is the simplest and recommended approach. It 
 
 3. **Save and Verify:** Save the connection. A new app registration will be created in your tenant, and federation will be configured to your Azure DevOps connection.
 
-![automatic workload identity configuration](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/automatic-creation.gif)
+![automatic workload identity configuration](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/automatic-creation.webp)
 
 Once the app registration is created, you're ready to utilize passwordless identity. For more complex scenarios or strict requirements, you may need to adjust permissions for the app registration to grant or restrict access.
 
@@ -119,28 +119,28 @@ Once the app registration is created, you're ready to utilize passwordless ident
 If you prefer to create connection manually or you want to use managed identities, you can follow the manual configuration process. This involves creating the managed identity/app registration and configuring federation yourself.
 
 1. **Create a Service Connection:** 
-In Azure DevOps, navigate to `Project Settings` > `Service Connections` and select `New service connection`. Choose Azure Resource Manager and select `Workload Identity federation (manual)`. After providing the service connection name, go the step 2 to create Azure principal and get its client id.
-![Create a service connection](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/new-connection-manual.gif)
+In Azure DevOps, navigate to `Project Settings` > `Service Connections` and select `New service connection`. Choose Azure Resource Manager and select `Workload Identity federation (manual)`. After providing the service connection name, go the step 2 to create Azure principal and get its client id.<br>
+![Create a service connection](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/new-connection-manual.webp)
 
 2. **Create a Managed Identity / App Registration:** Create new Managed Identity in a resource group or create a new app registration in Azure Entra ID. 
 
 3. **Configure Federation:** After creating principal, create new federated credentials.
-![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/managed-identity-federated-credentials.gif)
+![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/managed-identity-federated-credentials.webp)
 *Managed&nbsp;identity*<br><br>
-![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/app-registration-federated-credentials.gif)
+![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/app-registration-federated-credentials.webp)
 *Appregistration*<br><br>
 Select **Other**
 <br>
-![add](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/add-federated.gif)
+![add](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/add-federated.webp)
 <br><br>
 Enter the Azure DevOps service connection's `Issuer URL` and 
 `Subject identifier` from the first step. 
-![credentials details](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/credentials-details.gif)
+![credentials details](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/credentials-details.webp)
 <br><br>
 The **Issuer URL** value is always `https://vstoken.dev.azure.com/<azure-devops-organization-id>` and **Subject identifier** format is `sc://<azure-devops-organization-name>/<project-name>/<service-connection-name>`. 
 
 4. **Update Service Connection with principal data:** After creating a principal, and configuring federation go back to Azure DevOps new Service Connection wizard (step 1) and provide created principal **client id** and **tenant id**.<br>
-![add](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/principal-client-id.gif)
+![add](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/principal-client-id.webp)
 Now you can click `Save and verify` and start using your passwordless connection!
 
 {% capture notice %}
@@ -282,11 +282,11 @@ Many of you likely have numerous service connections configured within your proj
 
 #### Convert
 
-![convert connection](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/convert.gif)
+![convert connection](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/convert.webp)
 
 #### Revert changes
 
-![rollback connection](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/revert.gif)
+![rollback connection](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/revert.webp)
 
 ### How to use it with Terraform
 #### CLI
@@ -357,19 +357,19 @@ OpenID Connect (OIDC) integration has been available for GitHub Actions for some
 1. **Create a Managed Identity / App Registration:** Create new Managed Identity in a resource group or create a new app registration in Azure Entra ID. 
 
 2. **Configure Federation:** Click Add Credential
-![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/managed-identity-federated-credentials.gif)
+![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/managed-identity-federated-credentials.webp)
 *Managed&nbsp;identity*<br><br>
-![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/app-registration-federated-credentials.gif)
+![Create managed identity](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/app-registration-federated-credentials.webp)
 *App registration*
 
 3. **Configure Federation:** Select Github Actions deploying Azure resources
-![federated scenario](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/github-federation.gif)
+![federated scenario](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/github-federation.webp)
 
 3. **Configure Federation:** Enter mandatory fields
 - **Organization/Account Name**: Specify the name of the GitHub organization or personal account that owns the repository you want to federate.
 - **Repository Name**: Identify the repository you want to federate. Remember that federation is configured per repository, so you may encounter the 20-credential limit when using multiple repositories.
 - **Entity:** This parameter determines which entity within the repository will have the permissions to obtain an Azure token. You can choose from GitHub Environment, Branch, Pull Request, or Tag, providing flexibility in securing your permissions.
-![github federation settings](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/github-federation-settings.gif)
+![github federation settings](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/github-federation-settings.webp)
 
 #### Terraform configuration
 
@@ -616,7 +616,7 @@ While this approach provides more granular control over the environment variable
 
 In both scenarios you can easily spot `ARM_USE_AZUREAD` variable set to `true`. This is recommended way to connect to AzureRM backend (if you use one). Without this parameter, you will be using your passwordless identity to retrieve storage access key and connect with it to state file, but with that option you can set your identity `Storage blob data contributor` role on storage account with state file and completly disable local authentication (Access Keys) on storage account to leverage fully passwordless experience!
 
-![disable storage access keys](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/disable-storage-key.gif)
+![disable storage access keys](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/disable-storage-key.webp)
 
 # Conclusion
 

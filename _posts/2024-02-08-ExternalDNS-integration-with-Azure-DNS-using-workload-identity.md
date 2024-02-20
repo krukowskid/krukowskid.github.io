@@ -5,7 +5,7 @@ excerpt: "This blog post discusses how to integrate ExternalDNS with Azure DNS u
 title: "ExternalDNS integration with Azure DNS using workload identity"
 
 header:
-  teaser: /assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.png
+  teaser: /assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.webp
 
 date: 2024-02-08
 
@@ -24,7 +24,7 @@ toc: true
 toc_sticky: true
 ---
 
-![Header](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.png)
+![Header](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.webp)
 
 # Introduction
 
@@ -428,7 +428,7 @@ external-dns-c764ddc4-j8lhb   1/1     Running   0          8d
 ```
 ...or if you are using AKS, then you can check it in portal.
 
-![ExternalDNS deployed on aks](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/externaldns-deployed-on-aks.png)
+![ExternalDNS deployed on aks](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/externaldns-deployed-on-aks.webp)
 
 # Adding ingress rules
 
@@ -466,7 +466,7 @@ spec:
 
 Above configuration is enough for ExternalDNS. Ingress domain name matches domain specified in configuration, so controller will create new records for the domain.
 
-![Records created by ExternalDNS](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/external-dns-records.png)
+![Records created by ExternalDNS](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/external-dns-records.webp)
 
 As you can see, ExternalDNS created TXT records for each A record. Thanks to that, it knows which records are under its control.
 ```

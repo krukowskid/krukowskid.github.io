@@ -5,7 +5,7 @@ excerpt: "An easy way to improve security and enable DevSecOps in your CICD pipe
 title: "Bringing Open Source Security to Azure DevOps and GitHub Actions with Trivy"
 
 header:
-  teaser: /assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.png
+  teaser: /assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.webp
 
 date: 2023-05-21
 
@@ -25,7 +25,7 @@ toc: true
 toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.png)
+![Header](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.webp)
 
 As businesses use DevOps more and more, it's super important to make sure security is a part of it all. One way to do this is to add security tools to the pipeline that builds and deploys our code (the CI/CD pipeline). In this post, we'll talk about how to add Trivy to this pipeline to make things more secure.
 
@@ -162,11 +162,11 @@ The only difference is that I am using `image` instead of `path`. `image` is the
 
 This is what the results will look like:
 
-![Trivy Azure DevOps Repository scan output](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/trivy-repo-scan.gif)
+![Trivy Azure DevOps Repository scan output](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/trivy-repo-scan.webp)
 *Trivy repository scan output*
 
 
-![Trivy Azure DevOps Docker image scan output](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/trivy-dockerfile-scan.gif)
+![Trivy Azure DevOps Docker image scan output](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/trivy-dockerfile-scan.webp)
 *Trivy docker image scan output*
 
 ## GitHub Actions Workflow
@@ -307,10 +307,10 @@ For filesystem scan:
 {% endraw %}
 This is what the results will look like:
 
-![GitHub workflow summary](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/gh-summary.gif)
+![GitHub workflow summary](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/gh-summary.webp)
 *Trivy output in workflow summary - 91 errors found in built image*
 
-![GithHub test result details](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/gh-details.gif)
+![GithHub test result details](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/gh-details.webp)
 *Detailed output after clicking `see this check` - each error with explanation and corresponding CVE*
 
 # Conclusion
