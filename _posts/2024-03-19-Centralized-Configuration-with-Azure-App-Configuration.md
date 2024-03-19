@@ -115,7 +115,7 @@ key = service1:databaseName | value = "red"    | label = tenantA
 key = service1:databaseName | value = "orange" | label = tenantB
 ```
 
-## Managing enteries with Terraform
+## Managing entries with Terraform
 
 Since I manage all my infrastructure using Terraform, I also had to design a system that would allow me to manage application entries independently from each service Terraform definition.
 
