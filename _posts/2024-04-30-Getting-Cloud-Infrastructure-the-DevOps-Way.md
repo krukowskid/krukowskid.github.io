@@ -25,7 +25,9 @@ toc_sticky: true
 
 <style>
   img.mermaid {
-    max-height: 500px; 
+    max-height: 550px; 
+    display: block;
+    margin: auto;
   }
 </style>
 
