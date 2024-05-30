@@ -23,6 +23,15 @@ minimal_mistakes_skin: dark
 search: true
 locale: "en"
 
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id: R_kgDOInG7jg
+    category_name: comments
+    category_id: DIC_kwDOInG7js4CftoV
+    discussion_term: og:title
+    theme: dark
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
@@ -94,7 +103,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: false
-      comments: false
+      comments: true
       share: true
       related: true
   # _pages
