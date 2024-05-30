@@ -27,7 +27,7 @@ comments:
   provider: "giscus"
   giscus:
     repo_id: R_kgDOInG7jg
-    category_name: comments
+    category_name: "CloudChronicles.blog comments"
     category_id: DIC_kwDOInG7js4CftoV
     discussion_term: og:title
     theme: dark
@@ -38,7 +38,7 @@ remote_theme: mmistakes/minimal-mistakes
 repository: krukowskid/krukowskid.github.io
 # Outputting
 permalink: /:categories/:title/
-paginate: 10 # amount of posts to show
+paginate: 5
 paginate_path: /page:num/
 timezone: Europe/Warsaw
 
