@@ -142,6 +142,12 @@ The catch? It took almost a year to get AKS set up to the point where we were fu
 
 Managed Kubernetes services like AKS take a lot of work off your plate. If you don't have a huge team or hundreds of servers to manage, a managed solution is the way to go. There might be some vendor lock-in, but the benefits of less work and easier management outweigh that.
 
+## Service Bus
+
+After adding additional services, we found a need for these services to communicate with each other. Initially, we used HTTP calls, but this proved to be less than optimal. So, we decided to implement a service bus for asynchronous communication. Despite a learning curve, this turned out to be a significant benefit. 
+
+The service is affordable, reliable, and managed by Azure. It also provides a ready-to-use SDK and many useful features such as deferring messages, dead-letter queues, topic filters, passwordless authentication support, and much more. In my opinion, this is the best option for many projects that require asynchronous communication, without the need for Kafka's features and complexity.
+
 # Azure SignalR
 
 There is a subtle difference between Azure SignalR and the self-hosted version. With the self-hosted version, scaling your solution can be problematic, as multiple instances are not aware of each other. In such a scenario, you would need to add a Redis backplane, which increases the complexity of the infrastructure.
@@ -156,12 +162,6 @@ Azure SignalR operates differently as the service acts as a proxy, hiding all th
 
 
 However, due to this difference, some features and configurations vary. So, when reading a guide, make sure to check if it's for Azure SignalR or ASP.NET.
-
-## Service Bus
-
-After adding additional services, we found a need for these services to communicate with each other. Initially, we used HTTP calls, but this proved to be less than optimal. So, we decided to implement a service bus for asynchronous communication. Despite a learning curve, this turned out to be a significant benefit. 
-
-The service is affordable, reliable, and managed by Azure. It also provides a ready-to-use SDK and many useful features such as deferring messages, dead-letter queues, topic filters, passwordless authentication support, and much more. In my opinion, this is the best option for many projects that require asynchronous communication, without the need for Kafka's features and complexity.
 
 # Managed identities
 
@@ -198,7 +198,7 @@ We use Azure Storage for a variety of purposes, including video streaming, image
 
 ![SAS token flow](/assets/posts/2024-05-30-Lessons-Learned-Infrastructure-Wins-Regrets-at-a-Startup-on-Azure/file-upload-request-flow.webp)
 
-However, be cautious with SAS tokens. It's difficult to control how many are active, who owns them, and their scope. They are easy to misconfigure, potentially allowing access to other users' data or permitting usage for longer than necessary. If there's another option, avoid using SAS tokens. If you must use them, pay close attention to scope and lifetime settings. For example, for direct image upload, you can limit permissions to an exact path like `storageaccount.blob.core.windows.net/images/profile-name/image-name.jpg` with a 5-minute lifetime. This way, even if someone tries to misuse or steal the SAS token, they can only access or alter a single image for 5 minutes, instead of all the images in case SAS token would be generated for `storageaccount.blob.core.windows.net/images/profile-name/` or `storageaccount.blob.core.windows.net/images/` path.
+However, be cautious with SAS tokens. It's difficult to control how many are active, who owns them, and their scope. They are easy to misconfigure, potentially allowing access to other users' data or permitting usage for longer than necessary. If there's another option, avoid using SAS tokens. If you must use them, pay close attention to scope and lifetime settings. For example, for direct image upload, you can limit permissions to an exact path like `/images/profile-name/image-name.jpg` with a 5-minute lifetime. This way, even if someone tries to misuse or steal the SAS token, they can only access or alter a single image for 5 minutes, instead of all the images in case SAS token would be generated for `/images/profile-name/` or `/images/` path.
 
 # Application Insights
 
