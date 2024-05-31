@@ -200,9 +200,10 @@ We use Azure Storage for a variety of purposes, including video streaming, image
 
 However, be cautious with SAS tokens. It's difficult to control how many are active, who owns them, and their scope. They are easy to misconfigure, potentially allowing access to other users' data or permitting usage for longer than necessary. If there's another option, avoid using SAS tokens. If you must use them, pay close attention to scope and lifetime settings. For example, for direct image upload, you can limit permissions to an exact path like `/images/profile-name/image-name.jpg` with a 5-minute lifetime. This way, even if someone tries to misuse or steal the SAS token, they can only access or alter a single image for 5 minutes, instead of all the images in case SAS token would be generated for `/images/profile-name/` or `/images/` path.
 
-# Application Insights
+# Application Insights + Log Analytics
 
-We've established Grafana + Loki for some dashboards and `stout`/`sterr` logs display. However, the backbone of our monitoring and observability lies in App Insights. It's a robust service that is incredibly easy to set up and use. Initially, it might be overwhelming because setting it up with default settings can result in gigabytes of logs, which count towards your bill. But, once you filter out unnecessary data, it becomes an affordable and powerful tool that gives you an end-to-end view of your application. All you need to do is add an SDK and provide a connection string in your app.
+We've established Grafana + Loki for some dashboards and `stout`/`sterr` logs display. However, the backbone of our monitoring and observability lies in App Insights. It's a robust service that is incredibly easy to set up and use. Initially, it might be overwhelming because setting it up with default settings can result in gigabytes of logs, which count towards your bill. We've optimized costs thanks to [Thomas Stringer article - Azure Monitor Log Analytics too Expensive?](https://trstringer.com/log-analytics-expensive-part-1-discovery/)
+But, once you filter out unnecessary data, it becomes an affordable and powerful tool that gives you an end-to-end view of your application. All you need to do is add an SDK and provide a connection string in your app.
 
 # Monorepo
 
