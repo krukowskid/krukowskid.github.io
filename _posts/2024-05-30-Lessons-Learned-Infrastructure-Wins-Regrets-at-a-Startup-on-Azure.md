@@ -243,7 +243,7 @@ It's stable and meets our needs. While I believe we could achieve the same resul
 
 ## Founders Hub
  
-It's no secret that we applied to the Microsoft Founders Hub program and received substantial help from Microsoft. In addition to Azure credits (ranging from 1000 USD to 150000 UDF), you will receive GitHub Enterprise seats, Visual Studio Enterprise licenses, OpenAI credits, Microsoft consultations, and much more [^3], all without any commitments. This is great for any startup.
+It's no secret that we applied to the Microsoft Founders Hub program and received substantial help from Microsoft. In addition to Azure credits (ranging from 1000 USD to 150000 USD), you will receive GitHub Enterprise seats, Visual Studio Enterprise licenses, OpenAI credits, Microsoft consultations, and much more [^3], all without any commitments. This is great for any startup.
 
 # Conclusion
 
