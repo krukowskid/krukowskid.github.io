@@ -27,7 +27,7 @@ Every startup wrestles with infrastructure decisions. Inspired by a [post on bui
 
 Building the perfect system architecture is an ongoing quest. Initial decisions, based on best guesses, can evolve as we learn how the system behaves in the real world. This iterative process is the art of trade-offs.
 
-A great example is the "Project Paradox" concept I found on a [cool GitHub repository - Evolutionary Architecture](https://github.com/evolutionary-architecture/evolutionary-architecture-by-example). 
+All startups and greenfield projects have in common the fact that at the beginning we know nothing, and we have a huge amount of decisions to make. This is called the "Project Paradox" - the concept I found on a [cool GitHub repository - Evolutionary Architecture](https://github.com/evolutionary-architecture/evolutionary-architecture-by-example). 
 
 ![Project paradox](/assets/posts/2024-05-30-Lessons-Learned-Infrastructure-Wins-Regrets-at-a-Startup-on-Azure/project_paradox.webp)
 
@@ -218,6 +218,10 @@ We also implemented a subscription per environment and divided our code into lay
 # CI/CD
 
 From day one, we utilized CI/CD (GitHub Actions). Similar to Terraform, it posed an overhead but quickly proved its worth. It equipped our developers with confidence, knowing that if bad code was pushed, it would fail during the CI or CD phase. This also gave us visibility and the ability to connect application bugs to specific changes in the codebase. Every minute spent on CI/CD was worth it.
+
+## GitHub Actions
+
+When I started using it more than two years ago I was very dissatisfied (lots of outages, issues, and missing features). Currently, I wouldn't switch to anything else, and I recommend it to everyone who is considering migration from legacy CI/CD system or starting a new project
 
 # .NET
 
