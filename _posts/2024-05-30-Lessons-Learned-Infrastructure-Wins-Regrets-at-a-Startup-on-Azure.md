@@ -233,12 +233,12 @@ Due to our development flow, we heavily rely on automated tests. Playwright perf
 
 # Cloudflare Stream
 
-We initially hosted videos directly from Azure Blob, but encountered issues with some video formats. This necessitated adding another service like Azure Media Service or moving videos to a third-party service. Based on the information on Cloudflare's website, we decided to use their Stream service, but it proved to be a headache. 
+We initially hosted videos directly from Azure Blob which was really smart decision because of very short implementation time, but encountered issues with some video formats played directly from the storage. This necessitated adding another service like Azure Media Service or moving videos to a third-party service. Based on the information on Cloudflare's website, we decided to use their Stream service, but it proved to be a headache. 
 
 - The documentation wasn't up-to-date and lacked crucial information, which we could only discover by experimenting with the API, which didn't provide much clarity when errors occurred. 
 - There's no .NET SDK.
 - It lacks some core functionalities, such as the ability to set up separate accounts for development and production under a root account - this is only possible if you have a signed agreement with Cloudflare. 
-- There's no customer support unless you're on an enterprise plan, even for paid customers - you can only create a topic on the community forum. 
+- There's no customer support unless you're an enterprise customer, even for paid customers - you can only create a topic on the community forum. 
 
 We thought that integrating Cloudflare Stream would take a week, but it ended up taking us about a month. Besides that it has very fair pricing model where you are paying for storage in minutes stored (not gigabytes), and for minutes displayed (not data transfer) which makes this service very affordable and easy to predict the costs with increasing scale.
 
