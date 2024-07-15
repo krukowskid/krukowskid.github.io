@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Detect vulnerabilities early and ensure secure, robust deployments!"
 excerpt: "An easy way to improve security and enable DevSecOps in your CICD pipelines."
 
 title: "Bringing Open Source Security to Azure DevOps and GitHub Actions with Trivy"
 
-header:
-  teaser: /assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.webp
+image: /assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.webp
 
 date: 2023-05-21
 
@@ -20,12 +18,12 @@ tags:
   - Security
   - Trivy
 
-
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-05-21-Bringing-Open-Source-Security-to-Azure-DevOps-and-GitHub-Actions-with-Trivy/header.webp)
+* toc
+{:toc .large only} 
+
+# Introduction
 
 As businesses use DevOps more and more, it's super important to make sure security is a part of it all. One way to do this is to add security tools to the pipeline that builds and deploys our code (the CI/CD pipeline). In this post, we'll talk about how to add Trivy to this pipeline to make things more secure.
 

@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Enhance your CI/CD pipelines with passwordless authentication using Workload Identity Federation in GitHub Actions and Azure DevOps. Eliminate credential management and boost security for efficient deployments."
 excerpt: "Enhance your CI/CD pipelines with passwordless authentication using Workload Identity Federation in GitHub Actions and Azure DevOps. Eliminate credential management and boost security for efficient deployments."
 
 title: "Passwordless Authentication for GitHub Actions and Azure DevOps"
 
-header:
-  teaser: /assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.webp
+image: /assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.webp
 
 date: 2023-12-05
 last_modified_at: 2024-01-17
@@ -23,11 +21,10 @@ tags:
   - Security
   - Managed Identity
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -102,7 +99,7 @@ Enabling workload identity in your pipelines is a straightforward and safe task,
 
 ### Automatic configuration - App registration
 
-The automatic configuration option is the simplest and recommended approach. It streamlines the setup by automatically creating an app registration and configuring federation for you.
+The automatic configuration option is the simplest and recommended approach. It simplifies the setup by automatically creating an app registration and configuring federation for you.
 
 1. **Create a Service Connection:** Navigate to Project `Settings` > `Service Connections` and select `New service connection`. Choose `Azure Resource Manager` and select `Workload Identity federation (automatic)`.
 
@@ -143,10 +140,8 @@ The **Issuer URL** value is always `https://vstoken.dev.azure.com/<azure-devops-
 ![add](/assets/posts/2023-12-05-Passwordless-Authentication-for-GitHub-Actions-and-Azure-DevOps/principal-client-id.webp)
 Now you can click `Save and verify` and start using your passwordless connection!
 
-{% capture notice %}
-**_NOTE:_** You will find client id in app registration/managed identity overview tab, and tenant id in Entra ID tenant overview tab.
-{% endcapture %}
-<div class="notice">{{ notice | markdownify }}</div>
+You will find client id in app registration/managed identity overview tab, and tenant id in Entra ID tenant overview tab.
+{:.note title="important"}
 
 ### Terraform configuration - Managed Identity / App registration
 
@@ -620,4 +615,4 @@ In both scenarios you can easily spot `ARM_USE_AZUREAD` variable set to `true`. 
 
 # Conclusion
 
-Workload identity has revolutionized the way we authenticate with Azure resources, eliminating the need for managing credentials and enhancing overall security. By leveraging workload identity in Azure DevOps and GitHub Actions, you can streamline your deployments and CI/CD pipelines while maintaining robust security measures.
+Workload identity has revolutionized the way we authenticate with Azure resources, eliminating the need for managing credentials and enhancing overall security. By leveraging workload identity in Azure DevOps and GitHub Actions, you can simplify your deployments and CI/CD pipelines while maintaining high security standards.

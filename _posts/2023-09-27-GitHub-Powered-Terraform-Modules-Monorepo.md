@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Explore the GitHub-Powered Terraform Modules Monorepo!"
 excerpt: "A guide on how to use GitHub and GitHub Actions as Terraform Modules Monorepo with versioning, auto-documentation and security."
 
 title: "GitHub-Powered Terraform Modules Monorepo"
 
-header:
-  teaser: /assets/posts/2023-09-27-GitHub-Powered-Terraform-Modules-Monorepo/header.webp
+image: /assets/posts/2023-09-27-GitHub-Powered-Terraform-Modules-Monorepo/header.webp
 
 date: 2023-07-27
 
@@ -18,11 +16,10 @@ tags:
   - Terraform
   - Monorepo
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-09-27-GitHub-Powered-Terraform-Modules-Monorepo/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -30,11 +27,11 @@ In one of my recent projects, I found myself in a heated debate over whether to 
 
 In my quest for a solution, I scoured the web for ready-made answers but didn't find an exact match for my requirements. Fortunately, I stumbled upon a project with similar constraints to mine: [https://github.com/freight-hub/terraform-modules-demo](https://github.com/freight-hub/terraform-modules-demo) which became a starting point for my solution.
 
-The ingenious minds at Freight Hub had crafted a workflow that handled versioning modules from a monorepo and uploading them to AWS S3. It proved to be immensely helpful. However, I had my reasons for wanting to keep my modules in a private GitHub repository, and I also wished to incorporate validation tools like linting, tfsec, and checkov to ensure that changes were thoroughly tested before merging into the main branch and bumping the version number.
+The ingenious minds at Freight Hub had crafted a workflow that handled versioning modules from a monorepo and uploading them to AWS S3. It was my starting point for this project. However, I had my reasons for wanting to keep my modules in a private GitHub repository, and I also wished to incorporate validation tools like linting, tfsec, and checkov to ensure that changes were thoroughly tested before merging into the main branch and bumping the version number.
 
 # The Solution
 
-It took me some time to devise this workflow, and I even sought the assistance of a colleague with whom I had debated the best approach for handling modules. The solution comprises two primary GitHub workflows, a pull request template, and five "helper" workflows designed to enhance readability compared to consolidating everything into a single workflow file.
+It took me some time to create those workflows, and I even asked for assistance of a colleague with whom I had debated the best approach for handling modules. The solution comprises two primary GitHub workflows, a pull request template, and five "helper" workflows designed to improve readability and maintability compared to consolidating everything into a single workflow file.
 
 You can find example repository under this link: [https://github.com/krukowskid/terraform-modules-monorepo-on-github](https://github.com/krukowskid/terraform-modules-monorepo-on-github)
 
@@ -175,4 +172,4 @@ If you intend to keep your modules in a private repository, ensure that your app
 
 # Conclusion
 
-While the debate between monorepos and polyrepos continues, the advantages of a monorepo in terms of centralized management, documentation, collaboration, and streamlined workflows make it a compelling choice for organizations looking to optimize their Terraform module development process. Ultimately, the decision should align with the specific needs and goals of the project, but the monorepo approach offers undeniable benefits.
+While the debate between monorepos and polyrepos continues, the advantages of a monorepo in terms of centralized management, documentation, collaboration, and simplified workflows make it a compelling choice for organizations looking to optimize their Terraform module development process. Ultimately, the decision should align with the specific needs and goals of the project, but the monorepo approach offers undeniable benefits.

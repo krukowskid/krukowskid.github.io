@@ -1,11 +1,9 @@
 ---
-excerpt_text: "This guide offers a step-by-step walkthrough on enhancing Azure Cosmos DB for NoSQL with RBAC and passwordless authentication. It covers the benefits of managed identity, explores permission management levels, and provides instructions on creating and assigning custom roles with Terraform. Additionally, it explains how to disable access tokens and access data using Entra ID. This content is suitable for technical audiences aiming to improve security and efficiency in their Azure Cosmos DB operations."
 excerpt: "This guide offers a step-by-step walkthrough on enhancing Azure Cosmos DB for NoSQL with RBAC and passwordless authentication. It covers the benefits of managed identity, explores permission management levels, and provides instructions on creating and assigning custom roles with Terraform. Additionally, it explains how to disable access tokens and access data using Entra ID. This content is suitable for technical audiences aiming to improve security and efficiency in their Azure Cosmos DB operations."
 
 title: "Azure Cosmos DB RBAC and passwordless authentication"
 
-header:
-  teaser: /assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.webp
+image: /assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.webp
 
 date: 2024-01-17
 
@@ -19,11 +17,10 @@ tags:
   - Managed Identity
   - CosmosDb
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2024-01-17-Azure-Cosmos-DB-RBAC-and-passwordless-authentication/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 

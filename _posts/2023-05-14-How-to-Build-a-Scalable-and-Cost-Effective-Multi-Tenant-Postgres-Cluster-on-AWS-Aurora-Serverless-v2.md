@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Building a multi-tenant postgres data store solution on AWS cloud sounds easy, but there are many factors to consider."
 excerpt: "How to build multi-tenancy using relational databases. A complete guide which will lead you to proper architecture design for your solution."
 
 title: "How to Build a Scalable and Cost-Effective Multi-Tenant Postgres Cluster on AWS Aurora Serverless v2"
 
-header:
-  teaser: /assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header.webp
+image: /assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header.webp
 
 date: 2023-05-14
 
@@ -18,12 +16,10 @@ tags:
   - Postgres
   - Terraform
 
-
-toc: true
-toc_sticky: true
 ---
 
-![header image](/assets/posts/2023-05-14-How-to-Build-a-Scalable-and-Cost-Effective-Multi-Tenant-Postgres-Cluster-on-AWS-Aurora-Serverless-v2/header-mini.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 In this article, I will guide you through the process of building a cost-effective, scalable multitenant Postgres cluster. It is not as simple as it sounds! 
@@ -33,7 +29,7 @@ Recently, I was tasked with a similar project and quickly realized that there ar
 > Our current approach was to install a PostgreSQL engine locally for each client, which was easy and cost-effective from our perspective. However, some clients were not satisfied with hosting additional software and hardware in their locations. They wanted the option of using a vendor-hosted and managed instance instead. To meet their needs, we had to ensure that the desktop app running on Windows could connect to both local and cloud databases with minimal changes to the code.
 
 
-```mermaid!
+```mermaid
 flowchart TD;
     subgraph Company A;
         UA((User A<br>fa:fa-user)) --> A1[Windows application];
@@ -58,7 +54,7 @@ So desktop app running on windows is connecting to local instance of postgres li
 When it comes to hosting data stores for multiple clients, there are several approaches to choose from, each with its own set of pros and cons. In this article, we'll explore four popular options for Postgres multitenancy.
 
 ## Cluster per tenant
-```mermaid!
+```mermaid
 flowchart TD;
     subgraph "Cluster per tenant - no resources are shared";
         UA((User A<br>fa:fa-user)) --> D1
@@ -77,7 +73,7 @@ With the cluster per tenant approach, each client has its own instance of Postgr
 This approach is widely used in hosting services and local deployments where clients need to manage their own instances. It's also a common option in premium/enterprise plans of software-as-a-service (SaaS) solutionts that offer exclusive resources and customization options. However, it's the most expensive option, and in most cases, there will be a huge amount of underutilized resources.
 
 ## Database per tenant
-```mermaid!
+```mermaid
 flowchart TD;
     subgraph "Database per tenant - shared cluster, multiple databases";
         U3((User 1<br>fa:fa-user))  --> Db3;
@@ -94,7 +90,7 @@ With the database per tenant approach, each client has its own database within a
 This setup is common in both desktop apps and web applications where clients don't have direct access to the database, but application manages multiple connections string and decide which one to use for request. In many cases, it's possible to move from a cluster per tenant to a database per tenant with no code changes, making it a good option for those who have multiple clusters but are looking to simplify their infrastructure.
 
 ## Schema per tenant
-```mermaid!
+```mermaid
 flowchart TD;
     subgraph "Schema per tenant - shared cluster, shared database, multiple schemas";
         U5((User 1<br>fa:fa-user))  --> sc1;
@@ -112,7 +108,7 @@ In the schema per tenant approach, all clients use the same database. Permission
 
 Tables are duplicated for each user schema, as shown in the ER diagram below. The pros and cons of this approach are similar to those of the database per tenant approach, with the added benefit or drawback of not having to set up some configuration options that can only be set up on the database level.
 
-```mermaid!
+```mermaid
     erDiagram
         client1 ||--|| "client1 schema" : uses
         "client1 schema" ||--|| "client1.orders" : contains
@@ -136,7 +132,7 @@ Tables are duplicated for each user schema, as shown in the ER diagram below. Th
 ```
 
 ## Records per tenant
-```mermaid!
+```mermaid
 flowchart TD;
     subgraph "Records per tenant";
         U7((User 1<br>fa:fa-user))  --> r1;
@@ -156,7 +152,7 @@ In the records per tenant approach, everything is shared except for the database
 
 This approach is common in modern web applications where the application manages all aspects of access to data. As shown in the flowchart below, each client accesses a shared table, but only the records associated with that client's tenant ID are displayed.
 
-```mermaid!
+```mermaid
     erDiagram
         client1 ||--|| "(shared table) orders" : uses
         clientN ||--|| "(shared table) orders" : uses
@@ -221,7 +217,7 @@ The minimal amount is 0.5 so it is not true serverless. 0.5 ACU * 730 hours in m
 
 There were few minor changes required in application codebase in order to connect to Aurora Cluster, like add SSL/TLS database connection support in application, and logic for IAM token generation, but we agreed that Aurora Serverless v2 is best fit for our needs, and those changes can be easily implemented. We selected [Database per tenant](#database-per-tenant) approach.
 
-```mermaid!
+```mermaid
 flowchart TD
     subgraph Company A
         UA((User A<br>fa:fa-user)) --> A1[Windows application]
@@ -361,7 +357,7 @@ Each IAM account has a corresponding Postgres account, and permissions are assig
 
 In this setup, the user authenticates using AWS IAM credentials, and a token is generated that's used for accessing Postgres. This approach ensures that the user's identity is verified, and access is limited to only the whitelisted IP addresses.
 
-```mermaid!
+```mermaid
 flowchart TD
     subgraph Company A
         UA((User A<br>fa:fa-user)) --> A1[Windows application]
@@ -395,7 +391,7 @@ lifecycle {
 ```
 The second template is responsible for managing clients and does not touch the cluster. Instead, it manipulates IAM Users and Roles using the same module as for cluster creation and Postgres databases using the cyrilgdn/postgresql module.
 
-```mermaid!
+```mermaid
 flowchart LR
         tf((Terraform))
         tf .->|hashicorp/aws module| IAM

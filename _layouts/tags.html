@@ -1,0 +1,78 @@
+---
+layout:   page
+title:    Tags
+---
+
+{% comment%}
+Here we generate all the tags.
+{% endcomment%}
+
+{% assign rawtags = "" %}
+{% for post in site.posts %}
+  {% assign ttags = post.tags | join: '|' | append: '|' %}
+  {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+
+{% assign rawtags = rawtags | split: '|' | sort %}
+
+{% assign tags = "" %}
+{% for tag in rawtags %}
+    {% if tag != "" %}
+        {% if tags == "" %}
+            {% assign tags = tag | split: '|' %}
+        {% endif %}
+    {% unless tags contains tag %}
+        {% assign tags = tags | join: '|' | append: '|' | append: tag | split: '|' %}
+    {% endunless %}
+    {% endif %}
+{% endfor %}
+
+{% capture tags_list %}
+  {% for tag in tags %}
+  {{ tag }}|{{ site.tags[tag] | size }}
+    {% if forloop.last == false %}::{% endif%}
+  {% endfor %}
+{% endcapture %}
+{% assign tags_array = tags_list | split: '::' %}
+
+
+<ul class="tags-grid">
+    {% for tag_info in tags_array %}
+        {% assign info = tag_info | split: '|' %}
+        {% assign tag = info[0] | strip %}
+        {% assign count = info[1] %}
+        {% assign url_slug = tag | slugify %}
+        {% assign url = site.baseUrl | append: '/tags/' | append: '#' | append: url_slug %}
+        <li>
+            <a href="{% include_cached smart-url url=url %}" class="heading">
+                {{ tag }}
+            </a> &nbsp;
+            <small> {{ count }}</small>
+        </li>
+    {% endfor %}
+</ul>
+
+{% if page.no_groups %}<div class="columns {% unless no_third_column %}columns-break{% endunless %}">{% endif %}
+{% for tag_info in tags_array %}
+{% assign info = tag_info | split: '|' %}
+{% assign tag = info[0] | strip %}
+{% assign count = info[1] %}
+{% assign url_slug = tag | slug %}
+{% assign url = site.baseUrl | append: '/tag/' | append: url_slug %}
+
+{% unless page.no_groups %}
+{% unless forloop.first %}</div>{% endunless %}
+
+<h2 id="{{ tag | slugify }}">{{ tag }}</h2>
+<div class="columns columns-break">
+{% endunless %}
+{% assign posts = site.tags[tag] %}
+{% for post in posts %}
+<div class="column column-1-2">
+  {% include_cached pro/post-card.html post=post %}
+</div>
+
+{% if forloop.last %}</div>{% endif %}
+
+{% endfor %}
+{% endfor %}

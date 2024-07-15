@@ -1,0 +1,21 @@
+pkrukowski:
+  name: Piotr Krukowski
+  email: hello@cloudchronicles.blog
+
+  about:             |
+    Highly accomplished engineer with over 5 years of experience designing, 
+    implementing, and managing cloud-native systems and applications. 
+    Proven ability to drive DevOps transformation, automate processes, 
+    and enhance security across complex IT environments - 
+    expertise in Azure, .NET Core, Kubernetes, Terraform, 
+    and other leading cloud technologies.
+
+  picture:
+    path: /assets/img/bio-photo.webp
+
+  social:
+    github: krukowskid
+    linkedin: piotr-krukowski
+    reddit: piotr-krukowski
+    email: hello@cloudchronicles.blog
+

@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Learn how to efficiently manage your cloud infrastructure using DevOps principles. This guide covers essential strategies, tools, and best practices for deploying and managing cloud resources effectively."
 excerpt: "Learn how to efficiently manage your cloud infrastructure using DevOps principles. This guide covers essential strategies, tools, and best practices for deploying and managing cloud resources effectively."
 
 title: "Getting Cloud Infrastructure the DevOps Way"
 
-header:
-  teaser: /assets/posts/2024-04-30-Getting-Cloud-Infrastructure-the-DevOps-Way/header.webp
+image: /assets/posts/2024-04-30-Getting-Cloud-Infrastructure-the-DevOps-Way/header.webp
 
 date: 2024-04-30
 
@@ -19,8 +17,6 @@ tags:
   - Bicep
   - Azure
 
-toc: true
-toc_sticky: true
 ---
 
 <style>
@@ -31,7 +27,8 @@ toc_sticky: true
   }
 </style>
 
-![Header](/assets/posts/2024-04-30-Getting-Cloud-Infrastructure-the-DevOps-Way/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -79,10 +76,8 @@ To move forward, it's important to see infrastructure as services rather than se
 
 I think sticking with just Terraform and a modern CI/CD platform is a solid approach. You can accomplish a lot without needing additional tools like Terragrunt and/or Terraform management platforms. It's best to keep things simple and only explore additional tools if you encounter specific problems that you can't solve with Terraform alone. Below approach has proven successful in numerous projects of various sizes where I've been responsible for the infrastructure.
 
-{% capture notice %}
 **_NOTE:_** Although this article primarily focuses on Terraform and Azure, the tips and strategies discussed can be applied to any Infrastructure as Code language and cloud provider.
-{% endcapture %}
-<div class="notice">{{ notice | markdownify }}</div>
+{:.note title="important"}
 
 # Code structure
 
@@ -424,7 +419,7 @@ Dependencies between layers are managed such that higher layers can reference re
 - The shared layer can only reference resources from the global layer.
 - The global layer contains resources that are independent of other layers and are not dependent on resources from higher layers.
 
-```mermaid!
+```mermaid
 flowchart TD
 
     A1((Application Layer<br>YellowService))
@@ -571,7 +566,7 @@ In my CI process, I rely on the following free and open-source tools and command
 
 By integrating these tools into the CI pipeline, we can establish a solid CI process that detects and addresses potential issues early on. The diagram below illustrates the typical flow of this CI process:
 
-```mermaid!
+```mermaid
 flowchart TD
 UA((You<br>fa:fa-user)) --Commits code and open PR--> A1[terraform fmt]
     subgraph Continous Integration
@@ -589,7 +584,7 @@ UA((You<br>fa:fa-user)) --Commits code and open PR--> A1[terraform fmt]
 
 Once your changes have been merged and an artifact has been created, you are prepared for deployment. Because both your infrastructure and application files are stored together, generating a single artifact is straightforward. The next step involves selecting the appropriate artifact containing both the infrastructure and the built application and applying it to the desired environment.
 
-```mermaid!
+```mermaid
 flowchart TD
 UA((You<br>fa:fa-user)) --Select artifact and trigger deployment--> A2[terraform init]
     subgraph Continous Delivery
@@ -608,7 +603,7 @@ Continuous deployment operates differently, as each merge triggers a deployment 
 With continuous deployment, it's essential to ensure the changes are thoroughly reviewed before merging them. This includes reviewing any infrastructure changes alongside application changes. While smaller teams may opt to simply apply changes, it's recommended to reference the Terraform plan output from the last continuous integration (CI) run before the merge. This helps avoid discrepancies between the merge and deployment, which can occur during the 5 to 60 minutes between these stages, depending on the environment and the number of tests. However, if your team follows a policy where branches must be up-to-date with the main branch before merging, you're less likely to run into problems even without using plan from PR, as long as there aren't any manual changes made to the environment.
 
 
-```mermaid!
+```mermaid
 flowchart TD
     subgraph Continous Deployment
         UA((Detect new artifact)) --> A2[terraform init]

@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Learn to transition from AAD Pod Identities or install from scratch Azure Workload Identities, using tools like Terraform, Helm, and Helmfile."
 excerpt: "Complete guide on how to install Workload Identities in you Azure Kubernetes Cluster"
 
 title: "A Step-by-Step Guide to installing Azure Workload Identities on AKS"
 
-header:
-  teaser: /assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.webp
+image: /assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.webp
 
 date: 2023-06-04
 
@@ -21,11 +19,10 @@ tags:
   - Terraform
   - Containers
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-06-04-A-Step-by-Step-Guide-to-installing-Azure-Workload-Identities-on-AKS/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -45,7 +42,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.59.0"
+      version = "3.59.0"
     }
   }
 }

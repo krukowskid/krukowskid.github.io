@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Explore the process of setting up and managing Azure App Configuration using Terraform. This blog post delves into the intricacies of organizing keys, managing application entries independently, and streamlining configurations with a Terraform module. The post is a must-read for developers and IT professionals seeking to create a more efficient and user-friendly Azure environment."
-excerpt: "Explore the process of setting up and managing Azure App Configuration using Terraform. This blog post delves into the intricacies of organizing keys, managing application entries independently, and streamlining configurations with a Terraform module. The post is a must-read for developers and IT professionals seeking to create a more efficient and user-friendly Azure environment."
+excerpt: "Explore the process of setting up and managing Azure App Configuration using Terraform. This blog post explains how to organize key, manage application entries, and configure with a Terraform module. The post is a must-read for developers and IT professionals seeking to create a more efficient and user-friendly Azure environment."
 
 title: "Centralized Configuration with Azure App Configuration"
 
-header:
-  teaser: /assets/posts/2024-03-19-Centralized-Configuration-with-Azure-App-Configuration/header.webp
+image: /assets/posts/2024-03-19-Centralized-Configuration-with-Azure-App-Configuration/header.webp
 
 date: 2024-03-19
 
@@ -19,15 +17,14 @@ tags:
   - Managed Identity
   - Kubernetes
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2024-03-19-Centralized-Configuration-with-Azure-App-Configuration/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
-In one of my recent projects, we transitioned from App Services to AKS, incorporating tools like Helm and Helmfile into the mix. Managing the configurations proved to be a somewhat challenging task. Generic configurations, consistent across all environments, were stored in the `appsettings.json` file. Dynamic configurations, such as endpoints for connecting to services, were maintained in Terraform. Static, environment-specific configurations were handled via Helmfile. Additionally, the local development experience was less than ideal. Anytime an entry was added to the Terraform or Helmfile configurations, it had to be mirrored in the `appsettings.local.json` file. This led to developers struggling to manage and verify these configurations independently. Thus, the need for an easier configuration management solution became apparent. After exploring several options, I found that Azure App Configuration was the optimal solution for an application hosted on Azure, despite its limitations.
+In one of my recent projects, we moved from App Services to AKS, incorporating tools like Helm and Helmfile into the mix. Managing the configurations proved to be a somewhat challenging task. Generic configurations, consistent across all environments, were stored in the `appsettings.json` file. Dynamic configurations, such as endpoints for connecting to services, were maintained in Terraform. Static, environment-specific configurations were handled via Helmfile. Additionally, the local development experience was less than ideal. Anytime an entry was added to the Terraform or Helmfile configurations, it had to be mirrored in the `appsettings.local.json` file. This led to developers struggling to manage and verify these configurations independently. Thus, the need for an easier configuration management solution became apparent. After exploring several options, I found that Azure App Configuration was the optimal solution for an application hosted on Azure, despite its limitations.
 
 # Understanding Azure App Configuration
 
@@ -43,9 +40,7 @@ While there is no one-size-fits-all answer, Azure App Configuration may be benef
 - securely store all configurations and secrets via passwordless authentication,
 - monitor and respond to events based on configuration changes.
 
-In my case there was a need to enhance developer experience and simplify configuration management across service, but shortly after switching services to consume app configuration data, I started taking advantage of new service, and automated sendgrid configuration which in our scenario was time consuming manual error-prone task. The developer experience improved by a lot! After implementing app configuration, the only configuration needed on developer machine was to log-in to microsoft account within the IDE and provide approriate envrionment name and app configuration endpoint url.
-
-In my situation, there was a requirement to improve the developer experience and simplify configuration management across services. However, shortly after transitioning services to consume app configuration data, I began to leverage the new service capabilities and automated SendGrid configuration, which in our context was a time-intensive, error-prone manual task. The improvement in the developer experience was substantial! After incorporating app configuration, the only configuration required on the developer's machine was to log into their Microsoft account within the IDE and provide the appropriate environment name and app configuration endpoint URL.
+In my situation, there was a requirement to improve the developer experience and simplify configuration management across services. However, shortly after switching services to consume app configuration data, I take advantage of the new service capabilities and automated SendGrid configuration, which in our context was a time-intensive, error-prone manual task. After moving to App Configuration, the only configuration required on the developer's machine was to log into their Microsoft account within the IDE and provide the appropriate environment name and app configuration endpoint URL.
 
 # Features 
 
@@ -119,7 +114,7 @@ key = service1:databaseName | value = "orange" | label = tenantB
 
 Since I manage all my infrastructure using Terraform, I also had to design a system that would allow me to manage application entries independently from each service Terraform definition.
 
-```mermaid!
+```mermaid
 flowchart TD
     A1((YellowService<br>Terraform)) --Manage YellowService:* entries--> D1
     A3((Shared infrastructure<br>Terraform)) --Manage Shared:* entries<br>and App Configuration resource--> D1
@@ -137,7 +132,7 @@ As the diagram above illustrates, multiple Terraforms are writing to a single Ap
 
 ## Understanding the Process from the Service Perspective
 
-```mermaid!
+```mermaid
 flowchart LR
 
 service[YellowService]
@@ -188,10 +183,8 @@ builder.Host.ConfigureAppConfiguration((context, config) =>
 });
 ```
 
-{% capture notice %}
-**_NOTE:_** On Kubernetes, you can also install [App Configuration Kubernetes Provider](https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-azure-kubernetes-service) or use [Dapr](https://docs.dapr.io/reference/components-reference/supported-configuration-stores/azure-appconfig-configuration-store/) to connect to App Configuration.
-{% endcapture %}
-<div class="notice">{{ notice | markdownify }}</div>
+On Kubernetes, you can also install [App Configuration Kubernetes Provider](https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-azure-kubernetes-service) or use [Dapr](https://docs.dapr.io/reference/components-reference/supported-configuration-stores/azure-appconfig-configuration-store/) to connect to App Configuration.
+{:.note title="important"}
 
 As you can see from the code above, it utilizes two configuration entries: `AppConfiguration:Endpoint` to connect to the App Configuration and `ServiceName` to search for the service-related configuration. After retrieval, all key prefixes will be trimmed due to `.TrimKeyPrefix()`. One limitation to note is that there's no option to limit service permissions to specific keys - you can only provide read or read/write permissions. However, regarding KeyVault references, a service that hasn't been granted permissions to KeyVault won't be able to access the data. Therefore, it's your application's responsibility to authenticate both App Configuration and Key Vault properly, as these two services don't communicate directly.
 

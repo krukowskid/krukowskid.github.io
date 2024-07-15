@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Seamlessly integrate Azure Managed Identity with local Docker in Visual Studio for secure, hassle-free development."
 excerpt: "How to setup and use azure manage identity in local developement with docker desktop and visual studio."
 
 title: "Azure Managed Identity with Local Docker Containers in Visual Studio"
 
-header:
-  teaser: /assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/header.webp
+image: /assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/header.webp
 
 date: 2023-07-23
 last_modified_at: 2024-01-19
@@ -21,11 +19,10 @@ tags:
   - Visual Studio
   - Docker
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-07-23-Azure-Managed-Identity-with-Local-Docker-Containers-in-Visual-Studio/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -112,4 +109,4 @@ The mechanism behind this is fairly simple. Visual Studio maps volumes to Docker
 
 # Conslusion 
 
-The recent updates to Visual Studio and Azure identity packages bring improved support for workload identity and enhanced capabilities. Managed identity simplifies authentication with Azure services and offers better security. Embracing these updates streamlines development and provides a more consistent experience between local and cloud deployment. So, make sure to update your Visual Studio and packages to leverage these powerful features!
+The recent updates to Visual Studio and Azure identity packages bring improved support for workload identity and enhanced capabilities. Managed identity simplifies authentication with Azure services and offers better security. Using those features makes development easier and provides a more consistent experience between local and cloud deployment. So, make sure to update your Visual Studio and packages to leverage these powerful features!

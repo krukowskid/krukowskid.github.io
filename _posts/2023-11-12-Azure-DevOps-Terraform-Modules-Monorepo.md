@@ -1,11 +1,9 @@
 ---
-excerpt_text: "Exploring Azure DevOps for Terraform Modules Monorepo"
 excerpt: "A guide on how to use Azure DevOps as Terraform Modules Monorepo with versioning, auto-documentation and security."
 
 title: "Azure Devops Terraform Modules Monorepo"
 
-header:
-  teaser: /assets/posts/2023-11-12-Azure-DevOps-Terraform-Modules-Monorepo/header.webp
+image: /assets/posts/2023-11-12-Azure-DevOps-Terraform-Modules-Monorepo/header.webp
 
 date: 2023-11-12
 
@@ -18,11 +16,10 @@ tags:
   - Terraform
   - Monorepo
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2023-11-12-Azure-DevOps-Terraform-Modules-Monorepo/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -30,19 +27,17 @@ toc_sticky: true
 
 # The Solution
 
-Getting this Azure DevOps-powered solution up and running wasn't a walk in the park. I faced hurdles like missing runtime variables and difficulties passing data from pull requests to pipeline runs after merging. I've tackled similar challenges before and conquered these by making calls to the Azure DevOps API.
+Getting this Azure DevOps-powered solution up and running wasn't a walk in the park. I faced hurdles like missing runtime variables and difficulties passing data from pull requests to pipeline runs after merging. I've tackled similar challenges before and overcame these by making calls to the Azure DevOps API.
 
-The solution is composed of the main `.pipelines/ci.yaml`, a pull request template, and three stage templates in the `.pipelines/templates` directory. This modular approach makes the pipeline easy to maintain, and you can effortlessly customize it by adding the tools you prefer.
+The solution is composed of the main `.pipelines/ci.yaml`, a pull request template, and three stage templates in the `.pipelines/templates` directory. This modular approach makes the pipeline easy to maintain, and you can customize it by adding the tools you prefer.
 
 You can find the repository with the pipelines code here: [Terraform Modules Monorepo on Azure DevOps](https://github.com/krukowskid/terraform-modules-monorepo-on-azure-devops)
 
 ## Repository Prerequisites
 Before diving in, there are a few preparatory steps you need to take to ensure a smooth setup.
 
-{% capture notice %}
-**_NOTE:_** If your project security setting `Limit job authorization scope to current project for non-release/release pipelines` is configured to `OFF` then you will need to setup mentioned permissions for `Project Collection Build Service (organization_name)` instead of for `project_name Build Service (organization_name)`. [Job access token documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml)
-{% endcapture %}
-<div class="notice">{{ notice | markdownify }}</div>
+If your project security setting `Limit job authorization scope to current project for non-release/release pipelines` is configured to `OFF` then you will need to set up mentioned permissions for `Project Collection Build Service (organization_name)` instead of for `project_name Build Service (organization_name)`. [Job access token documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml)
+{:.note title="important"}
 
 1. **Import Code**: You can either commit files from my repository or import them by pasting the URL `https://github.com/krukowskid/terraform-modules-monorepo-on-azure-devops`` in the import wizard.
 

@@ -1,0 +1,28 @@
+{%- assign tags = include.tags -%}
+{%- assign meta = include.meta -%}
+{%- assign start_with = include.start_with -%}
+{%- assign separator = include.separator -%}
+{%- assign end_with = include.end_with -%}
+
+{%- assign content = '' -%}
+
+{%- if tags.size > 0 -%}
+  {%- assign content = start_with -%}
+  {%- for tag_slug in tags -%}
+    {%- capture iter_separator -%}{% if forloop.last %}{{ end_with }}{% else %}{{ separator }}{% endif %}{%- endcapture -%}
+
+    {%- if major >= 4 and minor >= 1 %}
+      {%- assign tag = meta | find: "slug", tag_slug -%}
+    {%- else -%}
+      {%- assign tag = meta | where: "slug", tag_slug | first -%}
+    {%- endif -%}
+
+    {% assign url_slug = tag_slug | slugify %}
+    {% assign url = site.baseUrl | append: '/tags/' | append: '#' | append: url_slug %}
+    {%- capture content_temp -%}{{ content }}<a href="{% include_cached smart-url url=url %}" class="flip-title">{{ tag_slug }}</a>{{ iter_separator }}{%- endcapture -%}
+
+    {%- assign content = content_temp -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{{- content -}}

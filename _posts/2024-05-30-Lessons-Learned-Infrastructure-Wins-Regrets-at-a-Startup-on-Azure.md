@@ -1,11 +1,9 @@
 ---
-excerpt_text: "In this post, I share our startup's tech journey, learnings from using Azure, and how initial plans can change with real-world experiences."
 excerpt: "In this post, I share our startup's tech journey, learnings from using Azure, and how initial plans can change with real-world experiences."
 
 title: "Lessons Learned: Infrastructure Wins & Regrets at a Startup on Azure"
 
-header:
-  teaser: /assets/posts/2024-05-30-Lessons-Learned-Infrastructure-Wins-Regrets-at-a-Startup-on-Azure/header.webp
+image: /assets/posts/2024-05-30-Lessons-Learned-Infrastructure-Wins-Regrets-at-a-Startup-on-Azure/header.webp
 
 date: 2024-05-30
 
@@ -15,11 +13,9 @@ categories:
 tags:
   - Azure
 
-toc: true
-toc_sticky: true
 ---
-
-![Header](/assets/posts/2024-05-30-Lessons-Learned-Infrastructure-Wins-Regrets-at-a-Startup-on-Azure/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
@@ -165,7 +161,7 @@ However, due to this difference, some features and configurations vary. So, when
 
 # Managed identities
 
-I find it hard to imagine managing an infrastructure without the help of managed identities. They greatly simplify the process of maintaining security! We use managed identities wherever possible to minimize the need for secret rotation, streamline permission management, and enhance the developer experience by eliminating the need to store development environment secrets locally - everything is retrieved based on their Entra ID identity, so new developer can setup local environment on the first day of work! While this does create a slight vendor lock-in within the application code, the trade-off is definitely worth it.
+I find it hard to imagine managing an infrastructure without the help of managed identities. They greatly simplify the process of maintaining security! We use managed identities wherever possible to minimize the need for secret rotation, simplifies permission management, and enhance the developer experience by eliminating the need to store development environment secrets locally - everything is retrieved based on their Entra ID identity, so new developer can setup local environment on the first day of work! While this does create a slight vendor lock-in within the application code, the trade-off is definitely worth it.
 
 # App configuration
 

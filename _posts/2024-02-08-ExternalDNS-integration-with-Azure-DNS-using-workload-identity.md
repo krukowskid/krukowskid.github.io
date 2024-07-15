@@ -1,11 +1,9 @@
 ---
-excerpt_text: "This blog post discusses how to integrate ExternalDNS with Azure DNS using workload identity. The guide covers the installation and configuration of ExternalDNS on Azure Kubernetes Service (AKS) using nginx ingress, Helm chart + Helmfile, Azure DNS, and workload identities. It also provides troubleshooting tips and highlights the benefits of using ExternalDNS for DNS management."
 excerpt: "This blog post discusses how to integrate ExternalDNS with Azure DNS using workload identity. The guide covers the installation and configuration of ExternalDNS on Azure Kubernetes Service (AKS) using nginx ingress, Helm chart + Helmfile, Azure DNS, and workload identities. It also provides troubleshooting tips and highlights the benefits of using ExternalDNS for DNS management."
 
 title: "ExternalDNS integration with Azure DNS using workload identity"
 
-header:
-  teaser: /assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.webp
+image: /assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.webp
 
 date: 2024-02-08
 
@@ -20,11 +18,10 @@ tags:
   - AKS
   - Bicep
 
-toc: true
-toc_sticky: true
 ---
 
-![Header](/assets/posts/2024-02-08-ExternalDNS-integration-with-Azure-DNS-using-workload-identity/header.webp)
+* toc
+{:toc .large only} 
 
 # Introduction
 
