@@ -130,7 +130,7 @@ giscus:
   category-id: DIC_kwDOInG7js4CftoV
   mapping: og:title
   theme: dark
-  reaction-enabled: "1"
+  reaction-enabled: "0"
   crossorigin: "anonymous"
 
 
