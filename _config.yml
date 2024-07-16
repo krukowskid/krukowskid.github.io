@@ -192,7 +192,7 @@ hydejack:
   no_theme_color:      false
 
   # Disable the breadcrumbs above the title
-  no_breadcrumbs:      false
+  no_breadcrumbs:      true
 
   # Set to `true` when building with the `--lsi` option
   use_lsi:             true
