@@ -12,9 +12,7 @@ categories:
 
 tags:
   - Azure
-
-toc: false
-toc_sticky: false
+  - News
 ---
  
 # Thank you to all readers of my blog, events participants & organizers.
