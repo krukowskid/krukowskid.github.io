@@ -16,7 +16,7 @@ tags:
 
 I remember just a few years ago, static websites weren't as popular. But nowadays, with all these tools and frameworks allowing client-side rendering, there's often no need for anything more than a frontend.
 
-For hosting my blog, I'm using a Jekyll engine combo with GitHub Actions and GitHub Pages. The coolest thing? It's reliable and completely free (except for the domain name, of course, but you can use a free `.github.io` domain from GitHub Pages). Everything is written in Markdown, then compiled into static files using GitHub Workflows. You can check out all the files here: [krukowskid/krukowskid.github.io]
+For hosting my blog, I'm using a Jekyll engine combo with GitHub Actions and GitHub Pages. The coolest thing? It's reliable and completely free (except for the domain name, of course, but you can use a free `.github.io` domain from GitHub Pages). Everything is written in Markdown, then compiled into static files using GitHub Workflows. You can check out all the files here: [krukowskid/krukowskid.github.io](krukowskid/krukowskid.github.io)
 
 I used to use the great "minimal-mistakes" Jekyll template, but I just couldn't get the look I wanted. So, to improve your reading experience, I decided to switch to a paid version of the "hydejack" template with a few modifications of my own.
 
