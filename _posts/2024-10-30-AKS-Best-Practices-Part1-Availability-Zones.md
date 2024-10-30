@@ -34,6 +34,8 @@ Storage follows similar principles, though it isn't mapped one-to-one with virtu
 
 Although it is not well described in AKS documentation, standard AKS nodes use Virtual Machine Scale Sets (VMSS), so most of the same concepts apply. However, VMSS is managed by AKS, and while we can modify its parameters, it's not recommended as these changes may be reverted, leading to unpredictable behavior.
 
+![logo](/assets/img/logo.png){:style="display:block; margin-left:auto; margin-right:auto" width="100" }
+
 ### Differences in Zones Configuration
 
 You might think that selecting no zone or all three zones is the same - it isn't. If you don't specify a zone (`[]` or `null`), it's considered a "regional deployment", meaning instances are placed in any zone at random, with no guarantee of distribution, so all instances could end up in a single zone.[^4]
