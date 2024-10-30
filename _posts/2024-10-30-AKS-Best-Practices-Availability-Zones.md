@@ -72,4 +72,4 @@ Do not change any settings on your own in VMSS. Plan your strategy before creati
 
 # Conclusion
 
-Unfortunately, there is no option to fine-tune all settings in the AKS managed Virtual Machine Scale Set yet, but I hope that above nformation clarifies these aspects for you!
+Unfortunately, AKS doesn’t yet offer the ability to fine-tune all settings within the managed Virtual Machine Scale Sets. However, I hope this post clarifies these aspects and helps you make the right decisions when setting up your cluster!
