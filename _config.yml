@@ -44,7 +44,7 @@ copyright:             © 2024. All rights reserved.
 # Format of the permalinks
 permalink:             /blog/:title/
 
-accent_image:          /assets/img/sidebar-bg.jpg
+accent_image:          /assets/img/sidebar-bg.webp
 accent_color:          rgb(79,177,186)
 theme_color:           rgb(25,55,71)
 google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
@@ -355,11 +355,11 @@ jekyll_compose:
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/sidebar-bg.webp
     blog:
       layout: grid
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/sidebar-bg.webp
