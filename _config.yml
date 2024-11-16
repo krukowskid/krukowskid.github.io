@@ -74,7 +74,7 @@ defaults:
       type:            posts
     values:
       comments:        true
-      applause_button: true
+      applause_button: false
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
