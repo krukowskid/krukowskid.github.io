@@ -426,7 +426,7 @@ From an infrastructure perspective:
 
 - Check if you're running services on VMs that could be moved into your AKS cluster
 - Consider whether moving from AKS to Azure Container Apps or other services would be more cost-effective (or another way from ACA/Web Apps to AKS). Consider not only Azure resources cost but also maintenance cost.
-- Evaluate your overall architecture for consolidation opportunities - merging multiple clusters into one
+- Evaluate your overall architecture for consolidation opportunities - merging multiple clusters into one with namespace separation
 
 If you need guidance on optimizing your infrastructure and application architecture, feel free to connect with me on LinkedIn.
 
