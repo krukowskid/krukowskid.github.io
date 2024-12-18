@@ -116,6 +116,7 @@ kramdown:
 # PRO version only!
 # tinyletter:            <username>
 
+lightbox: true
 
 # Hydejack Settings
 # ----------------------------------------------------------------------------------------
@@ -285,6 +286,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-last-modified-at
   - jemoji
+  - jekyll-target-blank
 
 
 # SEO Tag

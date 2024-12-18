@@ -248,7 +248,7 @@ You must also provide `app_configuration_key_prefix`, which will be appended at 
 While Azure App Configuration might initially seem a bit expensive, it offers a ready-to-use, reliable and straightforward service that can save you a significant amount of work in managing your configurations. If Microsoft were to add more flexibility regarding permission control, it would become an ideal service for most configuration and feature flag management scenarios. Unfortunately, this enhancement has been on the service roadmap for three years and remains in the backlog.[^4]
 
 
-[^1]: https://azure.microsoft.com/en-us/pricing/details/app-configuration/
+[^1]: [https://azure.microsoft.com/en-us/pricing/details/app-configuration/](https://azure.microsoft.com/en-us/pricing/details/app-configuration/)
 
 [^2]:https://learn.microsoft.com/en-us/azure/azure-app-configuration/faq#how-does-app-configuration-ensure-high-data-availability
 

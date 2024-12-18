@@ -28,7 +28,7 @@
   <a href="{{ post.url | relative_url }}" class="no-hover no-print-link {% unless post.hide_image %}flip-project{% endunless %}" tabindex="-1">
     <div class="project-card-img aspect-ratio sixteen-nine {% if post.image %}flip-project-img{% else %}fallback-img{% endif %}">
       {% if post.image %}
-        {% include_cached components/hy-img.html img=post.image alt=post.title sizes=sizes width=864 height=486 %}
+        {% include_cached components/hy-img.html img=post.image alt=post.title sizes=sizes width=864 height=486 class="no-lightbox" %}
       {% endif %}
     </div>
   </a>

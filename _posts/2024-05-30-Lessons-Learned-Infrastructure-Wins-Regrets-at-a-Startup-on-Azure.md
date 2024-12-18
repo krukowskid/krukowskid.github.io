@@ -250,6 +250,6 @@ It's no secret that we applied to the Microsoft Founders Hub program and receive
 
 Dream big, but start small. Don't try to solve problems that you aren't facing yet - align with current needs and challenges. 
 
-[^1]: https://sukhadanand.medium.com/does-facebook-really-uses-graph-database-5c3c51c6bca5
-[^2]: https://www.wired.com/2015/11/how-instagram-solved-its-justin-bieber-problem/
-[^3]: https://startups.microsoft.com/blog/trusted-partner-benefits/
+[^1]: [https://sukhadanand.medium.com/does-facebook-really-uses-graph-database-5c3c51c6bca5](https://sukhadanand.medium.com/does-facebook-really-uses-graph-database-5c3c51c6bca5)
+[^2]: [https://www.wired.com/2015/11/how-instagram-solved-its-justin-bieber-problem/](https://www.wired.com/2015/11/how-instagram-solved-its-justin-bieber-problem/)
+[^3]: [https://startups.microsoft.com/blog/trusted-partner-benefits/](https://startups.microsoft.com/blog/trusted-partner-benefits/)

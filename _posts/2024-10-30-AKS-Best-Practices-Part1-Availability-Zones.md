@@ -15,6 +15,9 @@ tags:
   - AKS
   - Kubernetes
   - Containers
+
+related_posts:
+  - _posts/2024-12-15-AKS-Best-Practices-Part2-Cost-Efficiency.md
 ---
 
 * toc
@@ -34,7 +37,7 @@ Storage follows similar principles, though it isn't mapped one-to-one with virtu
 
 Although it is not well described in AKS documentation, standard AKS nodes use Virtual Machine Scale Sets (VMSS), so most of the same concepts apply. However, VMSS is managed by AKS, and while we can modify its parameters, it's not recommended as these changes may be reverted, leading to unpredictable behavior.
 
-![logo](/assets/img/logo.png){:style="display:block; margin-left:auto; margin-right:auto" width="100" }
+![logo](/assets/img/logo.png){:style="display:block; margin-left:auto; margin-right:auto" width="100" }{:.no-lightbox}
 
 ### Differences in Zones Configuration
 
@@ -77,11 +80,11 @@ Do not change any settings on your own in VMSS. Plan your strategy before creati
 
 Unfortunately, AKS doesn’t yet offer the ability to fine-tune all settings within the managed Virtual Machine Scale Sets. However, I hope this post clarifies these aspects and helps you make the right decisions when setting up your cluster!
 
-[^1]: https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
-[^2]: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains
-[^3]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/is-your-availability-zone-quot-1-quot-equal-to-my-quot-1-quot/ba-p/3562349
-[^4]: https://learn.microsoft.com/en-us/azure/aks/aks-zone-resiliency
-[^5]: https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones
-[^6]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/ba-p/4036254
-[^7]: https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli#re-enable-the-cluster-autoscaler-on-a-node-pool
-[^8]: https://learn.microsoft.com/en-us/azure/aks/reduce-latency-ppg
+[^1]: [https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview)
+[^2]: [https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains)
+[^3]: [https://techcommunity.microsoft.com/t5/fasttrack-for-azure/is-your-availability-zone-quot-1-quot-equal-to-my-quot-1-quot/ba-p/3562349](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/is-your-availability-zone-quot-1-quot-equal-to-my-quot-1-quot/ba-p/3562349)
+[^4]: [https://learn.microsoft.com/en-us/azure/aks/aks-zone-resiliency](https://learn.microsoft.com/en-us/azure/aks/aks-zone-resiliency)
+[^5]: [https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones)
+[^6]: [https://techcommunity.microsoft.com/t5/fasttrack-for-azure/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/ba-p/4036254](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/a-practical-guide-to-zone-redundant-aks-clusters-and-storage/ba-p/4036254)
+[^7]: [https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli#re-enable-the-cluster-autoscaler-on-a-node-pool](https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli#re-enable-the-cluster-autoscaler-on-a-node-pool)
+[^8]: [https://learn.microsoft.com/en-us/azure/aks/reduce-latency-ppg](https://learn.microsoft.com/en-us/azure/aks/reduce-latency-ppg)

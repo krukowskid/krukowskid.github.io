@@ -16,6 +16,9 @@ tags:
   - Kubernetes
   - Containers
   - Terraform
+
+related_posts:
+  - _posts/2024-10-30-AKS-Best-Practices-Part1-Availability-Zones.md
 ---
 
 * toc
@@ -430,11 +433,11 @@ From an infrastructure perspective:
 
 If you need guidance on optimizing your infrastructure and application architecture, feel free to connect with me on LinkedIn.
 
-[^1]: https://cloudprice.net/vm/Standard_D4s_v5
-[^2]: https://cloudprice.net/vm/Standard_D4as_v5
-[^3]: https://techcommunity.microsoft.com/blog/linuxandopensourceblog/azure-linux-3-0-now-in-preview-on-azure-kubernetes-service-v1-31/4287229
-[^4]: https://learn.microsoft.com/en-us/azure/aks/node-resource-reservations#memory-reservations
-[^5]: https://learn.microsoft.com/en-us/azure/architecture/guide/spot/spot-eviction
-[^6]: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance
-[^7]: https://learn.microsoft.com/en-us/azure/storage/files/understand-performance
-[^8]: https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster
+[^1]: [https://cloudprice.net/vm/Standard_D4s_v5](https://cloudprice.net/vm/Standard_D4s_v5)
+[^2]: [https://cloudprice.net/vm/Standard_D4as_v5](https://cloudprice.net/vm/Standard_D4as_v5)
+[^3]: [https://techcommunity.microsoft.com/blog/linuxandopensourceblog/azure-linux-3-0-now-in-preview-on-azure-kubernetes-service-v1-31/4287229](https://techcommunity.microsoft.com/blog/linuxandopensourceblog/azure-linux-3-0-now-in-preview-on-azure-kubernetes-service-v1-31/4287229)
+[^4]: [https://learn.microsoft.com/en-us/azure/aks/node-resource-reservations#memory-reservations](https://learn.microsoft.com/en-us/azure/aks/node-resource-reservations#memory-reservations)
+[^5]: [https://learn.microsoft.com/en-us/azure/architecture/guide/spot/spot-eviction](https://learn.microsoft.com/en-us/azure/architecture/guide/spot/spot-eviction)
+[^6]: [https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-change-performance)
+[^7]: [https://learn.microsoft.com/en-us/azure/storage/files/understand-performance](https://learn.microsoft.com/en-us/azure/storage/files/understand-performance)
+[^8]: [https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster](https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster)
