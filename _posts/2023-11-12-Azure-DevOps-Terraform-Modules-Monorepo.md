@@ -16,6 +16,9 @@ tags:
   - Terraform
   - Monorepo
 
+related_posts:
+  - _posts/2023-09-27-GitHub-Powered-Terraform-Modules-Monorepo.md
+  - _posts/2025-01-29-Terraform-Modules-Monorepo-On-GitLab.md
 ---
 
 * toc
