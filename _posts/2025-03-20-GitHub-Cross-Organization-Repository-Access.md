@@ -36,12 +36,14 @@ In this article I focus on accessing the repository. However, you can use the sa
 # Why GitHub Apps Are Superior to PATs
 
 Before diving into implementation, let's understand why GitHub Apps provide a better approach:
-
 - **Fine-grained permissions** - Limit access to only what's needed
 - **No user dependency** - Works independently of individual accounts
 - **Short-lived tokens** - Automatically rotated, reducing security risks
 - **Transparency** - Clear tracking of all cross-organization actions
 - **Scalable management** - Easier to maintain across teams and projects
+
+How about `GITHUB_TOKEN`?
+Unfortunately GitHub token which is exposed to runners and controlled by permissions are scoped to the repository where the action is running.
 
 # Implementation Guide
 
