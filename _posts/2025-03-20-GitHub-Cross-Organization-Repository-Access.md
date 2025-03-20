@@ -49,7 +49,7 @@ Unfortunately GitHub token which is exposed to runners and controlled by permiss
 
 ## Step 1: Create a GitHub App
 
-First, create a GitHub App in the organization that hosts the repository you want to share:
+First, create a GitHub App in the organization or enterprise that hosts the repository you want to share:
 
 1. Navigate to your organization settings
 2. Open **Developer settings** → **GitHub Apps**
@@ -79,7 +79,7 @@ After creating the app:
 
 ## Step 4: Install the App on Your Organization
 
-Next, install your new app on the organization:
+Next, install your new app on the organization where the repository to-be shared is hosted:
 
 1. Navigate to the app's settings page
 2. Click **Install App** in the sidebar
