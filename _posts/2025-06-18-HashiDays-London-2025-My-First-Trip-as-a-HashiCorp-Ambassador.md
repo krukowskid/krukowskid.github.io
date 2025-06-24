@@ -116,6 +116,8 @@ At the registration desk we received:
 * Exam voucher
 * Plus... *Ambassador-only* stickers 😎
 
+![badge](/assets/posts/2025-06-18-HashiDays-London-2025-My-First-Trip-as-a-HashiCorp-Ambassador/8c3edcc4-1a3d-40c0-8aeb-bc1ba082daac.jpg)
+
 Before the opening keynote, we grabbed coffee and breakfast. Big shoutout to the **HashiCorp events and marketing team** - everything was beautifully prepared, even visually. Really impressive attention to detail, with delcious food served on every break between sessions.
 
 ![Breakfeast](/assets/posts/2025-06-18-HashiDays-London-2025-My-First-Trip-as-a-HashiCorp-Ambassador/c653bded-4b7d-4b80-ab76-c24a2b559dd4.jpg)
