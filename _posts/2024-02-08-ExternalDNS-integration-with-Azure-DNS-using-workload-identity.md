@@ -288,7 +288,7 @@ azure:
   useWorkloadIdentityExtension: true
   tenantId: < azure tenant id >
   subscriptionId: < subscription id with dns zone resource >
-  subscriptionId: < resource group name with dns zone resource >
+  resourceGroup: < resource group name with dns zone resource >
 ```
 
 Configure pod labels and service account annotations for workload identity.
