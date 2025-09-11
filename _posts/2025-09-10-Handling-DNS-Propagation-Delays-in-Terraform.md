@@ -20,6 +20,8 @@ related_posts:
 * toc
 {:toc .large only} 
 
+# Introduction
+
 Azure Private Endpoints have a sneaky timing problem in Terraform. The endpoint might exist, the DNS zone appears updated, and Terraform thinks everything is done and moves on as soon as the resource exists - but your system may still resolve the old address or not resolve it at all! That tiny DNS propagation delay can silently break automation.
 
 For example, when I deployed an Azure Key Vault with public access disabled, Terraform immediately tried to create a secret (`azurerm_key_vault_secret`) inside it, still resolving to the public address, so the request landed on the wrong endpoint and failed with a 403 Forbidden.
